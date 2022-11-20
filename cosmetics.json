@@ -176,11 +176,11 @@
             "description": "llora esporas"
         },
         {
-            "name": "Real?",
-            "displayName": "real?",
+            "name": "weirdcore",
+            "displayName": "weirdcore",
             "url": "/assets/images/realPlayer.png",
             "price": 333333,
-            "description": "se ve familiar"
+            "description": "se ve familiar?"
         },
         {
             "name": "stone",
@@ -285,7 +285,7 @@
             "displayName": "Hormiga TRIBU",
             "url": "/assets/images/hormigatribuPlayer.png",
             "price": 77777777,
-            "description": "DESATA LA FUERZA DE WARGARDENZ"
+            "description": "mordida mas dolorosa en wargardenz"
         },
         {
             "name": "cajaregalo",

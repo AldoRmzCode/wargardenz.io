@@ -37,7 +37,7 @@ class GameScene extends Phaser.Scene {
 		this.loadrect.setScale(Math.max(cameraWidth / this.loadrect.width, cameraHeight / this.loadrect.height));
 	
 		this.loadrect.x = 0 - ((this.loadrect.displayWidth - cameraWidth)/2);
-		this.loadtext= this.add.text(this.canvas.width/2, this.canvas.height/2, "Connecting...", {fontFamily: "Arial", fontSize: "32px", color: "#ffffff"}).setOrigin(0.5).setScrollFactor(0, 0).setDepth(200);
+		this.loadtext= this.add.text(this.canvas.width/2, this.canvas.height/2, "Connecting...", {fontFamily: "Franklin Gothic Medium Cond", fontSize: "32px", color: "#ffffff"}).setOrigin(0.5).setScrollFactor(0, 0).setDepth(200);
 		this.ping = 0;
 
 	}

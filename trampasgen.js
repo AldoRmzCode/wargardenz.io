@@ -20,5 +20,10 @@ for(var i = 0; i < trampaCount; i++) {
 
 var json = {tlocations};
 json = JSON.stringify(json);
+///
+this.damage =  (80 * this.scale > 30 ? 30 +(((80 * this.scale) - 30) / 5) : 80 * this.scale );
+this.lastHit = Date.now();
+///
 
 fs.writeFileSync("src/trampas.json", json);
+
