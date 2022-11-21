@@ -148,6 +148,13 @@
             "description": "*pop*"
         },
         {
+            "name": "pirata",
+            "displayName": "Pirata",
+            "url": "/assets/images/piratePlayer.png",
+            "price": 90000,
+            "description": "de donde salio?"
+        },
+        {
             "name": "toxic",
             "displayName": "Toxic",
             "url": "/assets/images/toxicPlayer.png",
@@ -223,6 +230,13 @@
             "url": "/assets/images/lavapolillaPlayer.png",  
             "price": 1500000,
             "description": "ama las lamparas de lava"
+        },
+        {
+            "name": "polillamitica",
+            "displayName": "Polilla mitica",
+            "url": "/assets/images/polillamiticaPlayer.png",
+            "price": 1600000,
+            "description": "extremadamente rara"
         },
         {
             "name": "virus",
