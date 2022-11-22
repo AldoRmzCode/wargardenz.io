@@ -43,10 +43,10 @@ if (process.env.USEFISHYSSL === "true") {
   usinghttps = true;
   var options = {
     key: fs.readFileSync(
-     // "/etc/letsencrypt/live/www.swordbttle.io/privkey.pem"
+     // "/etc/letsencrypt/live/www.wargardenz.com/privkey.pem"
     ),
     cert: fs.readFileSync(
-      //"/etc/letsencrypt/live/www.swordattle.io/fullchain.pem"
+      //"/etc/letsencrypt/live/www.wargardenz.com/fullchain.pem"
     ),
   };
   httpsserver = https.createServer(options, app).listen(443);
@@ -176,7 +176,7 @@ app.all("*", (req, res, next) => {
   console.log("IP", ip);
   // if ip is in ban list, send 403
   if (moderation.bannedIps.includes(ip)) {
-    res.status(403).send("You are banned, contact gautam@wargardenz.io for appeal<br>Have a terrible day xd");
+    res.status(403).send("You are banned, contact support@wargardenz.com for appeal<br>Have a terrible day xd");
     return;
   } else next();
 } catch (e) {
@@ -793,7 +793,7 @@ io.on("connection", async (socket) => {
   if (moderation.bannedIps.includes(socket.ip)) {
     socket.send(
       "ban",
-      "You are banned. Appeal to appeals@wargardenz.io<br><br>BANNED IP: " +
+      "You are banned. Appeal to support@wargardenz.com<br><br>BANNED IP: " +
         socket.ip
     );
     socket.disconnect();

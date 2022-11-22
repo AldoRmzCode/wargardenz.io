@@ -176,7 +176,7 @@ class TitleScene extends Phaser.Scene {
 
 //Titulo del juego pantalla principal
     this.done = false;
-    this.text = this.add.text(this.canvas.width / 2, 0, "wargardenz.io", {
+    this.text = this.add.text(this.canvas.width / 2, 0, "wargardenz", {
       fontFamily: "Franklin Gothic Medium Cond",
       fontSize: "70px",
       fill: "#000000"
