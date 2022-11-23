@@ -242,8 +242,15 @@
             "name": "virus",
             "displayName": "Virus",
             "url": "/assets/images/virusPlayer.png",
-            "price": 20000000,
+            "price": 18000000,
             "description": "010101010001010101010010101010101011"
+        },
+        {
+            "name": "yo",
+            "displayName": "Wargarden boy",
+            "url": "/assets/images/yoPlayer.png",
+            "price": 20000000,
+            "description": "xd"
         },
         {
             "name": "omega",
