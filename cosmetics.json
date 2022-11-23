@@ -183,6 +183,13 @@
             "description": "llora esporas"
         },
         {
+            "name": "cucarachuel",
+            "displayName": "Cucarachuel",
+            "url": "/assets/images/cucarachuelPlayer.png",
+            "price": 250000,
+            "description": "ama la pizza"
+        },
+        {
             "name": "weirdcore",
             "displayName": "weirdcore",
             "url": "/assets/images/realPlayer.png",

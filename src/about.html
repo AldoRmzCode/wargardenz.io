@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html>
-<head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="referrer" content="no-referrer">
 <style>
 
 
+
 body {
-  font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
   margin: 0;
+  background-color:rgb(24, 0, 24);
 }
 
 html {
   box-sizing: border-box;
 }
-
+ 
 *, *:before, *:after {
   box-sizing: inherit;
 }
@@ -27,8 +28,9 @@ html {
 }
 
 .card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  margin: 8px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.541);
+  margin: 10px;
+  background-color:rgb(104, 0, 107);
 }
 
 .about-section {
@@ -48,9 +50,18 @@ html {
   display: table;
 }
 
-.title {
-  color: rgb(59, 0, 59);
+.name {
+  color: rgb(255, 0, 200);
 }
+
+.title {
+  color: rgb(255, 255, 255);
+}
+
+.description {
+  color: rgb(255, 255, 255);
+}
+
 
 .button {
   border: none;
@@ -65,7 +76,8 @@ html {
 }
 
 .button:hover {
-  background-color: rgb(190, 0, 175);
+  background-color: rgb(204, 0, 187);
+  box-shadow: 0 1px 14px 0 rgba(255, 63, 255, 0.445);
 }
 
 @media screen and (max-width: 650px) {
@@ -76,24 +88,30 @@ html {
 }
 </style>
 </head>
-<body>
+<body> 
 
-  
+
+
 <div class="about-section">
-  <h1> T E A M : </h1>
-  <p>The creators of wargardenz</p>
-</div>
+    <h1 class="neon"> T E A M : </h1>
+    <p>The creators of wargardenz</p>
+  </div>
 
 
-  <div class="column">
+
+<div class="column">
     <div class="card">
       <center>
-      <img src="https://avatars.githubusercontent.com/u/113151837?s=400&u=8cbffe8ad4536471b50f6b90f23db80ec27973cf&v=4" alt="Aldo" style="width:40%">
+      <img src="https://avatars.githubusercontent.com/u/113151837?s=400&u=52d58d95b99731534808c29de1d958a8a849050b&v=4" alt="Aldo" style="width:40%">
       <div class="container">
-        <h2>AldoRmzCode</h2>
+
+        <h2 class="name">AldoRmzCode</h2>
+        
         <p class="title">LEAD DEVELOPER & ARTIST</p>
-        <p>"Gracias por jugar!! :)"<br><br>personal EMAIL: aldoraga0209@gmail.com</p>
-        <p>support EMAIL: support@wargardenz.com</p>
+        <p class="description">encargado de TODO lo visual, publicidad, nuevas funciones, objetos en el mapa, botones, etc. </p>
+        <p class="description">IG: aldo.rmz.x</p>
+        <p class="description">EMAIL: support@wargardenz.com</p>
+
         <p><a href="https://github.com/AldoRmzCode" class="button">View Github</a></p>
       </div>
     </center>
@@ -102,21 +120,30 @@ html {
 
 
 
-  <div class="row">
-    <div class="column">
-      <div class="card">
-        <center><img src="//avatars.githubusercontent.com/u/66850133?v=4" alt="Gautam" style="width:40%">
-        <div class="container">
-          <h2>Gautam</h2>
-          <p class="title">CREDITS</p>
-          <p>special credits, giving the basis and structure</p>
-          <p>gautam#1081</p>
-          <p>EMAIL: gautam@swordbattle.io</p>
-          <p><a href="//github.com/codergautam" class="button">View Github</a></p>
-        </div>
-        </center>
-      </div>
-    </div>
 
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <center>
+      <img src="//avatars.githubusercontent.com/u/66850133?v=4" alt="Aldo" style="width:40%">
+      <div class="container">
+
+        <h2 class="name">Gautam</h2>
+        
+        <p class="title">CREDITS</p>
+        <p class="description">créditos especiales, dando la estructura y bases. Programador desde 2014!</p>
+        <p class="description">gautam1081</p>
+        <p class="description">EMAIL: gautam@swordbattle.io</p>
+        <p><a href="https://www.wargardenz.com/" class="button">View Github</a></p>
+      </div>
+    </center>
+    </div>
+  </div>
+
+
+  more info: 
 </body>
 </html>
+
+
+
