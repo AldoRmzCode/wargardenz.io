@@ -124,6 +124,7 @@ var progress = 1 - (remainder / total);
         this.load.html("settings", "/settings.html");
         this.load.html("chat", "/chatbox.html");
         this.load.audio("openingsound", "/assets/sound/opening.mp3");
+        this.load.image("titulo", "/assets/images/titulo.png");
 
 
         this.scale.fullscreenTarget = document.getElementById("game");

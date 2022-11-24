@@ -2,14 +2,7 @@ const PlayerList = require("./classes/PlayerList");
 module.exports = {
     bannedIps: [
         "34.133.168.193",
-        "209.205.218.44",
-        "23.227.141.157",
-        "78.58.116.9",
-        "73.222.174.240",
-        "78.58.116.96",
-        "34.135.84.39",
-        "73.222.174.240",
-        "73.231.9.39"
+        
       ],
       io: undefined,
     start(app, io) {

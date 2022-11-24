@@ -447,7 +447,7 @@ class GameScene extends Phaser.Scene {
 								this.deadText.setFontSize(Math.min(this.canvas.width/25,this.canvas.height/20));
 								this.deadText.y += this.deadText.height;
 								
-								var msgs = ["Nooooooooo", "Rest in peace", "Practice makes perfect!", "Keep trying!", "gg"];
+								var msgs = ["gg"];
 								var msg = msgs[Math.floor(Math.random() * msgs.length)];
               this.dataText.destroy();
 								this.dataText = this.add.text(this.canvas.width/2, this.deadText.y, msg, {fontFamily: "Arial", fontSize: "32px", color: "#ffffff"}).setOrigin(0.5);
@@ -455,7 +455,7 @@ class GameScene extends Phaser.Scene {
 							this.dataText.y += this.dataText.height*1.5;	
 
               this.statsText.destroy();
-              					this.statsText = this.add.text(this.canvas.width/2, this.dataText.y, "Stabbed By: "+this.dtas.killedBy+"\nCoins: "+this.myObj.coins+"\nKills: "+this.myObj.kills+"\nSurvived: "+msToTime(this.dtas.timeSurvived), {fontFamily: "Arial", fontSize: "32px", color: "#ffffff"}).setOrigin(0.5);
+              					this.statsText = this.add.text(this.canvas.width/2, this.dataText.y, "Stabbed By: "+this.dtas.killedBy+"\nCoins: "+this.myObj.coins+"\nKills: "+this.myObj.kills+"\nYou survived: "+msToTime(this.dtas.timeSurvived), {fontFamily: "Arial", fontSize: "32px", color: "#ffffff"}).setOrigin(0.5);
 								this.statsText.setFontSize(Math.min(this.canvas.width/35, this.canvas.height/25));
 							this.statsText.y += this.statsText.height;
 						this.playAgain.destroy();
@@ -1006,7 +1006,7 @@ class GameScene extends Phaser.Scene {
 
 						if(!this.lvlText.data) this.lvlText.setData("x", 0);
 						this.lvlText.setData("x", this.lvlText.getData("x")+(player.level-this.myObj.level) );
-						this.lvlText.setText("Level up!"+(this.lvlText.getData("x") > 1 ? ` x${this.lvlText.getData("x")}` : ""));
+						this.lvlText.setText("LEVEL UP!"+(this.lvlText.getData("x") > 1 ? ` x${this.lvlText.getData("x")}` : ""));
 
 						 var completeCallback = () => {
 							this.lvlTextTween = this.tweens.add({
@@ -1664,7 +1664,7 @@ class GameScene extends Phaser.Scene {
 								this.deadText.setFontSize(Math.min(this.canvas.width/25,this.canvas.height/20));
 								this.deadText.y += this.deadText.height;
                 
-																var msgs = ["Nooooooooo", "Rest in peace", "Practice makes perfect!", "Keep trying!", "gg"];
+								var msgs = ["gg"];
 								var msg = msgs[Math.floor(Math.random() * msgs.length)];
 								this.dataText = this.add.text(this.canvas.width/2, this.deadText.y, msg, {fontFamily: "Arial", fontSize: "32px", color: "#ffffff"}).setOrigin(0.5);
 								this.dataText.setFontSize(Math.min(this.canvas.width/40, this.canvas.height/30));
@@ -1672,7 +1672,7 @@ class GameScene extends Phaser.Scene {
 							this.dataText.y += this.dataText.height*1.5;
                  this.cameras.main.ignore(this.dataText);
 
-							this.statsText = this.add.text(this.canvas.width/2, this.dataText.y, "Stabbed By: "+data.killedBy+"\nCoins: 0\nKills: 0\nSurvived: 0s", {fontFamily: "Arial", fontSize: "32px", color: "#ffffff"}).setOrigin(0.5);
+							this.statsText = this.add.text(this.canvas.width/2, this.dataText.y, "You were killed by: "+data.killedBy+"\nCoins: 0\nKills: 0\nYou survived: 0s", {fontFamily: "Arial", fontSize: "32px", color: "#ffffff"}).setOrigin(0.5);
 								this.statsText.setFontSize(Math.min(this.canvas.width/35, this.canvas.height/25));
 							this.statsText.y += this.statsText.height;
                 this.cameras.main.ignore(this.statsText);
@@ -1704,7 +1704,7 @@ class GameScene extends Phaser.Scene {
           var kills = Math.round(this.myObj.kills * (tween.getValue()/100));
           var time = Math.round(data.timeSurvived * (tween.getValue()/100));
 
-          this.statsText.setText("Stabbed By: "+data.killedBy+"\nCoins: "+coins+"\nKills: "+kills+"\nSurvived: "+msToTime(time));
+          this.statsText.setText("You were killed by: "+data.killedBy+"\nCoins: "+coins+"\nKills: "+kills+"\nYou survived: "+msToTime(time));
           
 				
 				}

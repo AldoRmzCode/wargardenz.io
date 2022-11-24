@@ -265,7 +265,7 @@ class TitleScene extends Phaser.Scene {
 
         if (this.playPreroll) {
           if (typeof aiptag.adplayer !== "undefined") {
-            this.nameBox.getChildByName("btn").innerHTML = "Connecting...";
+            this.nameBox.getChildByName("btn").innerHTML = "...Connecting...";
             this.nameBox.getChildByName("btn").style.backgroundColor = "grey";
             this.music.stop();
 
@@ -278,13 +278,16 @@ class TitleScene extends Phaser.Scene {
                 LOADING_TEXT: "loading advertisement",
                 PREROLL_ELEM: function() { return document.getElementById("preroll"); },
                 AIP_COMPLETE: (evt) => {
-                  /*******************
-                   ***** WARNING *****
-                   *******************
-                   Please do not remove the PREROLL_ELEM
-                   from the page, it will be hidden automaticly.
-                   If you do want to remove it use the AIP_REMOVE callback.
+
+                  
+                              /*******************
+                               ***** WARNING *****
+                               *******************
+                   Por favor, no elimine el "PREROLL_ELEM"
+                   de la página, se ocultará automáticamente.
+                   Si quieres eliminarlo utiliza la llamada de retorno "AIP_REMOVE".
                   */
+                 
                   this.nameBox.destroy();
                   document.getElementById("game").focus();
                   this.callback(myName, this.music, this.secret);
@@ -333,7 +336,7 @@ class TitleScene extends Phaser.Scene {
     this.secret = undefined;
 
     const login = (secret) => {
-      this.nameBox.getChildByName("btn").innerHTML = "Connecting...";
+      this.nameBox.getChildByName("btn").innerHTML = "...Connecting...";
       this.nameBox.getChildByName("btn").disabled = true;
       console.log("Attempting to login");
       grecaptcha.ready(() => {
@@ -468,7 +471,7 @@ class TitleScene extends Phaser.Scene {
 this.shopLoading = false;
     this.shopBtn = new ImgButton(this, 10, 10, "shopBtn", () => {
       if(this.shopLoading) return;
-      if(this.nameBox.getChildByName("btn").innerHTML == "Connecting...") return;
+      if(this.nameBox.getChildByName("btn").innerHTML == "...Connecting...") return;
       document.getElementById("shopFrame").contentWindow.location.replace("/shop?secret=" + this.secret);
       var frame = document.getElementById("shopFrame");
       this.shopLoading = true;
