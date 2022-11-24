@@ -83,7 +83,8 @@ class GameScene extends Phaser.Scene {
 				  } else {
 					config.volume = 0.5;
 				  }
-
+				  
+//SONIDOS/SOUNDS:
 				this.coin = this.sound.add("coin", config);
 				this.chestOpen = this.sound.add("chestOpen", config);
 				this.chestHit = this.sound.add("chestHit", config);

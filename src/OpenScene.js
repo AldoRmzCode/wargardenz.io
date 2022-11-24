@@ -106,7 +106,7 @@ var progress = 1 - (remainder / total);
 
         this.load.audio("coin", "/assets/sound/coin.m4a");
         this.load.audio("damage", "/assets/sound/damage.mp3");
-        this.load.audio("hit", "/assets/sound/hitenemy.wav");
+        this.load.audio("hit", "/assets/sound/hitenemy.mp3");
         this.load.audio("winSound", "/assets/sound/win.m4a");
         this.load.audio("loseSound", "/assets/sound/lost.mp3");
         this.load.audio("chestOpen", "/assets/sound/chest.wav");
