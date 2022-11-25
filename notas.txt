@@ -49,3 +49,42 @@ SOLO INFO:
 
 LETRA:
 Franklin Gothic Medium Cond
+
+
+
+leaderboard.EJS:
+linea 333= nombres registrados y mostrados en leaderboard
+
+
+
+++++++++++++++SHOP++++++++++++
+
+.btn {
+  color: #ffffff;   // colo texto del precio y "equip"
+  padding: 0.8rem;
+  font-size: 19px;  //tamaño del precio y "equip"
+  text-transform: uppercase;
+  border-radius: 4px;
+  font-weight: 400;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+}
+
+
++++++++++++++++++++++styles.css++++++++++
+
+boton de play!:
+
+button[type='submit'] {
+  background-color: var(--primary-color);
+  color: #fff;
+  font-size: 120%;
+  display: block;
+  margin: 20px auto 10px;
+  border-radius: 10px;
+  padding: 5px 20px;
+  cursor: pointer;
+}

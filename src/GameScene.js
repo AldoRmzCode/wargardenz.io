@@ -103,7 +103,7 @@ class GameScene extends Phaser.Scene {
 				this.meSword = this.add.image(400, 100, "sword").setScale(0.25).setDepth(50).setAlpha(0.5);
 				this.mePlayer = this.add.image(400, 100, "player").setScale(0.25).setDepth(51).setAlpha(0.5);
 				this.meChat = this.add.text(0,0,"", {
-					fontFamily: "Georgia",
+					fontFamily: "franklin-gothic-medium-cond",
 				}).setOrigin(0.5).setDepth(71);
 				this.meChatTween = undefined;
 				this.swordAnim = {go: false, added: 0};
@@ -116,7 +116,7 @@ class GameScene extends Phaser.Scene {
 				
 				try { 
 				this.killCount = this.add.rexBBCodeText(15, 10, "Stabs: 0", {
-					fontFamily: "Georgia, \"Goudy Bookletter 1911\", Times, serif",
+					fontFamily: "Franklin Gothic Medium Cond, \"Goudy Bookletter 1911\", Times, serif",
 				}).setFontSize(40).setDepth(101);
 				this.killCount.addImage("coin", { //IMAGE
 					key: "coin",
@@ -136,14 +136,14 @@ class GameScene extends Phaser.Scene {
 				//player+fpscounter            leaderboard jugando:
 
 					this.playerCount = this.add.text(0, 0, "Players: 0" + (!this.mobile ? "\nFPS: 0\nTPS: 0\nPing: 0 ms":""), {
-						fontFamily: "Georgia, \"Goudy Bookletter 1911\", Times, serif",
+						fontFamily: "Franklin Gothic Medium Cond, \"Goudy Bookletter 1911\", Times, serif",
 						align: "right"
 					}).setFontSize(20).setDepth(101).setOrigin(1);
 					this.playerCount.setScrollFactor(1);
 
 					//leaderboard
 					this.leaderboard = this.add.rexBBCodeText(0, 10, "", {
-					fontFamily: "Georgia, \"Goudy Bookletter 1911\", Times, serif",
+					fontFamily: "Franklin Gothic Medium Cond, \"Goudy Bookletter 1911\", Times, serif",
 				}).setFontSize(20).setDepth(101);
 
 

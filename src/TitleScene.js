@@ -178,7 +178,7 @@ class TitleScene extends Phaser.Scene {
     this.done = false;
     this.text = this.add.text(this.canvas.width / 2, 0, "wargardenz", {
       fontFamily: "Franklin Gothic Medium Cond",
-      fontSize: "70px",
+      fontSize: "75px",
       fill: "#000000"
       // font-weight: 100;
     }).setOrigin(0.5);

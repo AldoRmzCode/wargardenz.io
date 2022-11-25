@@ -168,7 +168,7 @@ label {
 button[type='submit'] {
   background-color: var(--primary-color);
   color: #fff;
-  font-size: 120%;
+  font-size: 125%;
   display: block;
   margin: 20px auto 10px;
   border-radius: 10px;

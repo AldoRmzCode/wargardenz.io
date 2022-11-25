@@ -74,6 +74,8 @@ app.use(express.json());
 app.disable("x-powered-by"); //Disable powered by header to prevent vulnerability scans against wargardenz.
 // Add properties to it
 schema
+
+//REGLAS PARA SIGNUP
   .is()
   .min(5, "Password has to be at least 5 chars") // Minimum length 5
   .is()
@@ -81,6 +83,8 @@ schema
   .has()
   .not()
   .spaces(undefined, "Password cant contain spaces"); // Should not have spaces
+
+
 
 const Player = require("./classes/Player");
 const Coin = require("./classes/Coin");
@@ -350,7 +354,7 @@ app.post("/api/changename", async (req,res) => {
     res.status(400).send({error: "You already have this username!"});
     return;
   }
-  //check if new username valid
+  //check if new username valid/ checar que nombres son permitidos
 
   if(newUsername.length >= 20) {
 		res.status(400).send({error: "Username has to be shorter than 20 characters"});
@@ -364,6 +368,35 @@ app.post("/api/changename", async (req,res) => {
 		res.status(400).send({error: "Username can't have two spaces in a row"});
 		return;
 	}
+
+//false defamations 2: (ERROR 404): falsas difamaciones
+if(newUsername.includes("stolen")) {
+  res.status(400).send({error: "Username contains a bad word!\nIf this is a mistake, please contact an admin."});
+  return;
+}
+if(newUsername.includes("copying")) {
+  res.status(400).send({error: "Username contains a bad word!\nIf this is a mistake, please contact an admin."});
+  return;
+}
+if(newUsername.includes("flaseGame")) {
+  res.status(400).send({error: "Username contains a bad word!\nIf this is a mistake, please contact an admin."});
+  return;
+}
+if(newUsername.includes("flase Game")) {
+  res.status(400).send({error: "Username contains a bad word!\nIf this is a mistake, please contact an admin."});
+  return;
+}
+if(newUsername.includes("flase_Game")) {
+  res.status(400).send({error: "Username contains a bad word!\nIf this is a mistake, please contact an admin."});
+  return;
+}
+if(newUsername.includes("swordbattle")) {
+  res.status(400).send({error: "Username already taken"});
+  return;
+}
+//
+
+
 	var regex = /^[a-zA-Z0-9!@"$%&:';()*\+,;\-=[\]\^_{|}<>~` ]+$/g;
 	if(!newUsername.match(regex)) {
 		res.status(400).send({error: "Username can only contain letters, numbers, spaces, and the following symbols: !@\"$%&:';()*\+,-=[\]\^_{|}<>~`"});
@@ -440,6 +473,35 @@ app.post("/api/signup",checkifMissingFields, async (req, res) => {
 		res.send({error: "Username can't have two spaces in a row"});
 		return;
 	}
+
+//false defamations
+
+if(username.includes("stolen")) {
+  res.send({error: "Username contains a bad word!\nIf this is a mistake, please contact an admin."});
+  return;
+}
+if(username.includes("copying")) {
+  res.send({error: "Username contains a bad word!\nIf this is a mistake, please contact an admin."});
+  return;
+}
+if(username.includes("flaseGame")) {
+  res.send({error: "Username contains a bad word!\nIf this is a mistake, please contact an admin."});
+  return;
+}
+if(username.includes("flase Game")) {
+  res.send({error: "Username contains a bad word!\nIf this is a mistake, please contact an admin."});
+  return;
+}
+if(username.includes("flase_Game")) {
+  res.send({error: "Username contains a bad word!\nIf this is a mistake, please contact an admin."});
+  return;
+}
+if(username.includes("swordbattle")) {
+  res.send({error: "Username already taken"});
+  return;
+}
+
+  
 	var regex = /^[a-zA-Z0-9!@"$%&:';()*\+,;\-=[\]\^_{|}<>~` ]+$/g;
 	if(!username.match(regex)) {
 		res.send({error: "Username can only contain letters, numbers, spaces, and the following symbols: !@\"$%&:';()*\+,-=[\]\^_{|}<>~`"});
@@ -636,6 +698,8 @@ app.get("/shop", async (req, res) => {
   });
 });
 
+
+//coneccion con database
 app.get("/leaderboard", async (req, res) => {
   //SELECT * from games where EXTRACT(EPOCH FROM (now() - created_at)) < 86400 ORDER BY coins DESC LIMIT 10
 

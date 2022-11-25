@@ -37,26 +37,27 @@ img {
 }
 
 .card_image {
-  background: linear-gradient(to bottom left, #9b006c 10%, rgb(109, 0, 73) 100%);
+  background: linear-gradient(to bottom left, #092e09  7%, rgb(0, 80, 0));
   box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
 }
 
 .btn {
   color: #ffffff;
-  padding: 0.8rem;
-  font-size: 14px;
+  padding: 0.9rem;
+  font-size: 19px;
   text-transform: uppercase;
   border-radius: 4px;
   font-weight: 400;
   display: block;
   width: 100%;
   cursor: pointer;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1.5px solid rgba(0, 0, 0, 0.795);
   background: transparent;
 }
 
 .btn:hover {
-  background-color: rgba(255, 255, 255, 0.12);
+  background-color: rgba(247, 0, 152, 0.788);
+  text-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px #ff00dd , 0 0 70px #ff00dd , 0 0 80px #ff00dd , 0 0 100px #ff00dd ;
 }
 
 .cards {
@@ -93,7 +94,7 @@ img {
 }
 
 .card {
-  background: linear-gradient(to bottom left, #062506 7%, green 100%);
+  background: linear-gradient(to bottom left, #9b006c 10%, rgb(99, 0, 66) 100%);
   box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
   display: flex;
   flex-direction: column;
@@ -108,7 +109,7 @@ img {
 
 .card_title {
   color: #ffffff;
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: capitalize;
@@ -145,7 +146,7 @@ function numberWithCommas(x) {
       function buy(skin,price,obj) {
 
         if(Number(bal) < price) {
-          alert("Not enough coins");
+          alert("Srry, not enough coins /  Lo siento, Insuficientes monedas");
           return;
         }
         obj.innerHTML = "Buying...";
@@ -166,7 +167,7 @@ function numberWithCommas(x) {
           if(data.status == 200) {
             bal -= price;
            document.getElementById("balt").innerHTML = "Balance: "+numberWithCommas(bal)+" ";
-           //append image to balt
+           //append image to baltalt
           document.getElementById("balt").appendChild(document.createElement("img")).src = "/assets/images/coin.png";
           //set size of image
           document.getElementById("balt").lastChild.width = "30";
@@ -184,7 +185,7 @@ function numberWithCommas(x) {
            data.text().then(function(text) {
             obj.innerHTML = numberWithCommas(price)+" ";
             obj.appendChild(document.createElement("img")).src = "/assets/images/coin.png";
-            obj.lastChild.style.width = "20";
+            obj.lastChild.style.width = "20"; //tamaño moneda
             obj.onclick = function() {
               buy(skin,price,obj);
             }
@@ -242,7 +243,8 @@ function numberWithCommas(x) {
     <div class="main" style="background-color: black;">
 
         <br/>
-        <h1 style="color: white; font-size: xx-large;"><b>- S H O P -</b></h1><h1 id="balt" style="color: white; font-size: xx-large;">Balance: <%=numberWithCommas(account.bal)%> <img width="30" src="/assets/images/coin.png"></h1>
+        <h1 style="color: white; font-size: 50px;"><b>S H O P</b></h1>
+        <h1 id="balt" style="color: white; font-size: xx-large;">Balance: <%=numberWithCommas(account.bal)%> <img width="30" src="/assets/images/coin.png"></h1>
         <center><button id="closeShop" style="font-size: xx-large;">Close</button></center>
         <br>
        <div id="skins">
