@@ -17,7 +17,7 @@ class Player {
     this.name = name;
     this.health = 100;
     this.coins = 0;
-    this.pos = {x: getRandomInt(-250,250), y: getRandomInt(-250,250)};
+    this.pos = {x: getRandomInt(-250,250), y: getRandomInt(-250,250)}; //punto de aparicion del player en mapa
     this.kills = 0;
     this.speed = 700;
     this.scale = 0.25;

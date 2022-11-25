@@ -94,7 +94,7 @@ class GameScene extends Phaser.Scene {
 				this.loseSound = this.sound.add("loseSound", config);
     
 				this.tps = 0;
-				//background
+				//background/suelo
 				this.background = this.add.tileSprite(0, 0, this.canvas.width, this.canvas.height, "background").setOrigin(0).setDepth(2);
 				this.background.fixedToCamera = true;
 
@@ -118,12 +118,12 @@ class GameScene extends Phaser.Scene {
 				this.killCount = this.add.rexBBCodeText(15, 10, "Stabs: 0", {
 					fontFamily: "Franklin Gothic Medium Cond, \"Goudy Bookletter 1911\", Times, serif",
 				}).setFontSize(40).setDepth(101);
-				this.killCount.addImage("coin", { //IMAGE
+				this.killCount.addImage("coin", { //IMAGE/imagen
 					key: "coin",
 					width: 45,
 					height: 45
 				});
-				this.killCount.addImage("kill", { //IMAGE
+				this.killCount.addImage("kill", { //IMAGE/imagen
 					key: "kill",
 					width: 45,
 					height: 45
@@ -131,7 +131,24 @@ class GameScene extends Phaser.Scene {
 				
 				this.killCount.setScrollFactor(0);
 
-		
+
+
+
+
+				//clanes:
+				
+
+				//this.clanes = new ImgButton(this, 0,0, "clanes",()=>{
+				//}
+
+
+
+
+
+
+
+
+				
 
 				//player+fpscounter            leaderboard jugando:
 
@@ -442,9 +459,9 @@ class GameScene extends Phaser.Scene {
   }
 
 							this.deathRect.destroy();
-							this.deathRect = this.add.rectangle(this.canvas.width/2, this.canvas.height/2, this.canvas.width/2, this.canvas.height/1.5, 0x5e0009);
+							this.deathRect = this.add.rectangle(this.canvas.width/2, this.canvas.height/2, this.canvas.width/2, this.canvas.height/1.5, 0x66002b);
               this.deadText.destroy();
-				this.deadText = this.add.text(this.canvas.width/2, (this.deathRect.y- (this.deathRect.height/2)), "YOU DIED", {fontFamily: "Arial", fontSize: "32px", color: "#ffffff"}).setOrigin(0.5);
+				this.deadText = this.add.text(this.canvas.width/2, (this.deathRect.y- (this.deathRect.height/2)), "YOU DIED", {fontFamily: "Arial", fontSize: "35px", color: "#ffffff"}).setOrigin(0.5);
 								this.deadText.setFontSize(Math.min(this.canvas.width/25,this.canvas.height/20));
 								this.deadText.y += this.deadText.height;
 								
@@ -1651,7 +1668,7 @@ class GameScene extends Phaser.Scene {
 					this.time.delayedCall(1500, () => {
 						
 						//show death screen........................................................................................................0x(color del resctangulo)
-						this.deathRect = this.add.rectangle(this.canvas.width/2, this.canvas.height/2, this.canvas.width/2, this.canvas.height/1.5, 0x5e0009).setAlpha(0);
+						this.deathRect = this.add.rectangle(this.canvas.width/2, this.canvas.height/2, this.canvas.width/2, this.canvas.height/1.5, 0x66002b).setAlpha(0);
             this.cameras.main.ignore(this.deathRect);
 						this.tweens.add({
 							targets: this.deathRect,
@@ -1660,7 +1677,7 @@ class GameScene extends Phaser.Scene {
 							ease: "Sine2",
 							onComplete: () => {
 								window.onbeforeunload = () => {};
-										this.deadText = this.add.text(this.canvas.width/2, (this.deathRect.y- (this.deathRect.height/2)), "YOU DIED", {fontFamily: "Arial", fontSize: "32px", color: "#ffffff"}).setOrigin(0.5);
+										this.deadText = this.add.text(this.canvas.width/2, (this.deathRect.y- (this.deathRect.height/2)), "YOU DIED", {fontFamily: "Arial", fontSize: "35px", color: "#ffffff"}).setOrigin(0.5);
                 this.cameras.main.ignore(this.deadText);
 								this.deadText.setFontSize(Math.min(this.canvas.width/25,this.canvas.height/20));
 								this.deadText.y += this.deadText.height;
