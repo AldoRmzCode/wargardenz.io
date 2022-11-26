@@ -106,3 +106,12 @@ button[type='submit'] {
 
   15/11/2022:
   font-family: Arial, Helvetica, sans-serif;---> font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+
+
+ ________________________________________________________________________
+  ++++++++HITBOX++++++++
+
+  https://github.com/photonstorm/phaser/issues/4052
+
+  ________________________________________________________________________

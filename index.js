@@ -370,28 +370,8 @@ app.post("/api/changename", async (req,res) => {
 	}
 
 //false defamations 2: (ERROR 404): falsas difamaciones
-if(newUsername.includes("stolen")) {
+if(newUsername.includes("stolen", "copying", "falseGame", "false Game", "false_Game", "swordbattle")) {
   res.status(400).send({error: "Username contains a bad word!\nIf this is a mistake, please contact an admin."});
-  return;
-}
-if(newUsername.includes("copying")) {
-  res.status(400).send({error: "Username contains a bad word!\nIf this is a mistake, please contact an admin."});
-  return;
-}
-if(newUsername.includes("flaseGame")) {
-  res.status(400).send({error: "Username contains a bad word!\nIf this is a mistake, please contact an admin."});
-  return;
-}
-if(newUsername.includes("flase Game")) {
-  res.status(400).send({error: "Username contains a bad word!\nIf this is a mistake, please contact an admin."});
-  return;
-}
-if(newUsername.includes("flase_Game")) {
-  res.status(400).send({error: "Username contains a bad word!\nIf this is a mistake, please contact an admin."});
-  return;
-}
-if(newUsername.includes("swordbattle")) {
-  res.status(400).send({error: "Username already taken"});
   return;
 }
 //
@@ -476,28 +456,8 @@ app.post("/api/signup",checkifMissingFields, async (req, res) => {
 
 //false defamations
 
-if(username.includes("stolen")) {
+if(username.includes("stolen", "copying", "falseGame", "false Game", "false_Game", "swordbattle" )) {
   res.send({error: "Username contains a bad word!\nIf this is a mistake, please contact an admin."});
-  return;
-}
-if(username.includes("copying")) {
-  res.send({error: "Username contains a bad word!\nIf this is a mistake, please contact an admin."});
-  return;
-}
-if(username.includes("flaseGame")) {
-  res.send({error: "Username contains a bad word!\nIf this is a mistake, please contact an admin."});
-  return;
-}
-if(username.includes("flase Game")) {
-  res.send({error: "Username contains a bad word!\nIf this is a mistake, please contact an admin."});
-  return;
-}
-if(username.includes("flase_Game")) {
-  res.send({error: "Username contains a bad word!\nIf this is a mistake, please contact an admin."});
-  return;
-}
-if(username.includes("swordbattle")) {
-  res.send({error: "Username already taken"});
   return;
 }
 

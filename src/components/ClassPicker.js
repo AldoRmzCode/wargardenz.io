@@ -18,8 +18,8 @@ this.text2 = "Abeja";
   rect2.x -= rect2.width/2;
   rect2.x += gap;
   rect.x -= gap;
-
-  this.rect1 = new Phaser.GameObjects.Graphics(scene, {fillStyle: {color: 0x21991d}}).setDepth(99);
+//------------------------------------------------------------------------color de cuadro de evolucion (abeja)
+  this.rect1 = new Phaser.GameObjects.Graphics(scene, {fillStyle: {color: 0x991d1d}}).setDepth(99);
   this.rect1.fillRectShape(rect);
  // this.classGraphic.fillRectShape(rect2);
   this.rect1.setDepth(50);
@@ -39,8 +39,8 @@ while(this.imgObj1.displayWidth>rect.width || this.imgObj1.displayHeight>rect.he
 }
 
   scene.add.existing(this.rect1);
-
-  this.rect2 = new Phaser.GameObjects.Graphics(scene, {fillStyle: {color: 0x21991d}}).setDepth(99);
+//--------------------------------------------------------------- color de recuadro de evolucion (araña)
+  this.rect2 = new Phaser.GameObjects.Graphics(scene, {fillStyle: {color: 0x1d2e99}}).setDepth(99);
   this.rect2.fillRectShape(rect2);
   this.rect2.setDepth(50);
   this.rect2.setAlpha(0.9);
