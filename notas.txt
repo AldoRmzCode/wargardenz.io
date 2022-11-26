@@ -115,3 +115,6 @@ button[type='submit'] {
   https://github.com/photonstorm/phaser/issues/4052
 
   ________________________________________________________________________
+
+
+  LETRA: C ===>  dispara sword
