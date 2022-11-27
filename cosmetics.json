@@ -102,8 +102,8 @@
             "name": "trabajo",
             "displayName": "Trabajador",
             "url": "/assets/images/trabajoPlayer.png",
-            "price": 20000000,
-            "description": "xd"
+            "price": 50000,
+            "description": "mucho desvelo"
         },
         {
             "name": "ghost",
@@ -256,7 +256,7 @@
             "name": "aldo",
             "displayName": "AldoRmzCode",
             "url": "/assets/images/aldoPlayer.png",
-            "price": 50000,
+            "price": 19000000,
             "description": "desarrollador del juego"
         },
         {
