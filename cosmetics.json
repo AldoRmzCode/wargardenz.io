@@ -253,11 +253,11 @@
             "description": "010101010001010101010010101010101011"
         },
         {
-            "name": "aldormzcode",
-            "displayName": "AldoRmzCode",
+            "name": "aldo",
+            "displayName": "Aldo",
             "url": "/assets/images/aldoPlayer.png",
-            "price": 19000000,
-            "description": "desarrollador del juego"
+            "price": 18000000,
+            "description": "a"
         },
         {
             "name": "omega",
