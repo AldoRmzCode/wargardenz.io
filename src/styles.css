@@ -26,7 +26,7 @@ canvas {
 h1,
 h2 {
   margin: 0 0 20px;
-  font-family: 'courier new', courier;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   color: #fff;
   font-size: 200%;
 }
@@ -75,7 +75,7 @@ li {
   display: none;
 }
 
-/* Game title and start button */
+/* Game title and start button/  BOTON DETITULO EN PANTALLA PRINCIPAL Y DE "PLAY" */
 
 @keyframes slide {
   0% {
@@ -84,11 +84,11 @@ li {
 }
 
 .title {
-  font-family: courier, cursive;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 130px;
   color: rgb(0, 0, 0);
   animation-name: slide;
-  animation-duration: 1s;
+  animation-duration: 1s; /* animacion de aparicion de titulo */
 }
 
 .form {

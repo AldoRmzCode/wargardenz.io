@@ -99,11 +99,11 @@
             "description": "retro"
         },
         {
-            "name": "aldo",
-            "displayName": "AldoRmzCode",
-            "url": "/assets/images/aldoPlayer.png",
-            "price": 50000,
-            "description": "desarrollador del juego"
+            "name": "trabajo",
+            "displayName": "Trabajador",
+            "url": "/assets/images/trabajoPlayer.png",
+            "price": 20000000,
+            "description": "xd"
         },
         {
             "name": "ghost",
@@ -253,11 +253,11 @@
             "description": "010101010001010101010010101010101011"
         },
         {
-            "name": "yo",
-            "displayName": "Wargarden boy",
-            "url": "/assets/images/yoPlayer.png",
-            "price": 20000000,
-            "description": "xd"
+            "name": "aldo",
+            "displayName": "AldoRmzCode",
+            "url": "/assets/images/aldoPlayer.png",
+            "price": 50000,
+            "description": "desarrollador del juego"
         },
         {
             "name": "omega",
