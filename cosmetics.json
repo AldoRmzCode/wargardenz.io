@@ -114,23 +114,16 @@
         },
         {
             "name": "promo",
-            "displayName": "Juega WG",
+            "displayName": "desarrollando",
             "url": "/assets/images/promoPlayer.png",
-            "price": 50000,
-            "description": "prueba promo"
-        },
-        {
-            "name": "aldormzcode",
-            "displayName": "a",
-            "url": "/assets/images/aldormzcodePlayer.png",
             "price": 75000,
-            "description": "prueba aldo"
+            "description": "Juega WG !"
         },
         {
             "name": "minibee",
             "displayName": "Mini Bee",
             "url": "/assets/images/minibeePlayer.png",
-            "price": 75000,
+            "price": 80000,
             "description": "abeja pequeña"
         },
         {
@@ -167,6 +160,13 @@
             "url": "/assets/images/toxicPlayer.png",
             "price": 90000,
             "description": "sabor ácido"
+        },
+        {
+            "name": "aldormzcode",
+            "displayName": "AldoRmzCode",
+            "url": "/assets/images/aldormzcodePlayer.png",
+            "price": 95000,
+            "description": "Desarrollador de WG"
         },
         {
             "name": "curiosito",
@@ -257,7 +257,7 @@
             "displayName": "Virus",
             "url": "/assets/images/virusPlayer.png",
             "price": 18000000,
-            "description": "010101010001010101010010101010101011"
+            "description": "01010111 01000111"
         },
         {
             "name": "omega",
@@ -320,14 +320,14 @@
             "displayName": "Hormiga TRIBU",
             "url": "/assets/images/hormigatribuPlayer.png",
             "price": 77777777,
-            "description": "mordida mas dolorosa en wargardenz"
+            "description": "mordida mas poderosa en WG"
         },
         {
             "name": "cajaregalo",
             "displayName": "caja de regalo",
             "url": "/assets/images/cajaregaloPlayer.png",
             "price": 0,
-            "description": "caja de regalo, gracias por jugar"
+            "description": "Por parte mia, para ustedes"
         }
         
     ]
