@@ -113,6 +113,20 @@
             "description": "un poco cansado"
         },
         {
+            "name": "promo",
+            "displayName": "Juega WG",
+            "url": "/assets/images/promoPlayer.png",
+            "price": 50000,
+            "description": "prueba promo"
+        },
+        {
+            "name": "aldormzcode",
+            "displayName": "a",
+            "url": "/assets/images/aldormzcodePlayer.png",
+            "price": 75000,
+            "description": "prueba aldo"
+        },
+        {
             "name": "minibee",
             "displayName": "Mini Bee",
             "url": "/assets/images/minibeePlayer.png",
