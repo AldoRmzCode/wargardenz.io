@@ -102,8 +102,15 @@
             "name": "trabajo",
             "displayName": "Trabajador",
             "url": "/assets/images/trabajoPlayer.png",
+            "price": 20000000,
+            "description": "xd"
+        },
+        {
+            "name": "aldo",
+            "displayName": "AldoRmzCode",
+            "url": "/assets/images/aldoPlayer.png",
             "price": 50000,
-            "description": "mucho desvelo"
+            "description": "desarrollador del juego"
         },
         {
             "name": "ghost",
@@ -251,13 +258,6 @@
             "url": "/assets/images/virusPlayer.png",
             "price": 18000000,
             "description": "010101010001010101010010101010101011"
-        },
-        {
-            "name": "aldo",
-            "displayName": "Aldo",
-            "url": "/assets/images/aldoPlayer.png",
-            "price": 18000000,
-            "description": "a"
         },
         {
             "name": "omega",
