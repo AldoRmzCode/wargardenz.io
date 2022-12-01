@@ -302,6 +302,13 @@
             "description": "de lo mas grafico en WG"
         },
         {
+            "name": "esmeralda",
+            "displayName": "Esmeralda",
+            "url": "/assets/images/esmeraldaPlayer.png",
+            "price": 35000000,
+            "description": "la envidia de todos"
+        },
+        {
             "name": "ultrastone",
             "displayName": "Ultra Stone",
             "url": "/assets/images/ultrastonePlayer.png",
