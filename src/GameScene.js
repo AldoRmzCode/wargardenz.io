@@ -519,7 +519,7 @@ class GameScene extends Phaser.Scene {
 					doit = setTimeout(resize, 100);
 				  });
 				//go packet
-				var server = this.options.server == "eu1" ? "wss://wargardenz.com" : this.options.server == "us2" ? "wss://wargardenz.com" : "wss://wargardenz.com";
+				var server = this.options.server == "eu1" ? "wss://www.wargardenz.com" : this.options.server == "us2" ? "wss://www.wargardenz.com" : "wss://www.wargardenz.com";
 				// server = undefined; // Enable for localhost/development
 				function isPrivateIP(ip) {
 					//remove port if present
