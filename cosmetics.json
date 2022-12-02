@@ -335,7 +335,13 @@
             "url": "/assets/images/cajaregaloPlayer.png",
             "price": 0,
             "description": "Por parte mia, para ustedes"
+        },
+        {
+            "name": "duende",
+            "displayName": "mestreensinador",
+            "url": "/assets/images/duendePlayer.png",
+            "price": 100,
+            "description": "Tu de niño, (TIEMPO LIMITADO)"
         }
-        
     ]
 }

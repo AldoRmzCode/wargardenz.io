@@ -85,7 +85,7 @@ li {
 
 .title {
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-size: 130px;
+  font-size: 140px;
   color: rgb(0, 0, 0);
   animation-name: slide;
   animation-duration: 1s; /* animacion de aparicion de titulo */

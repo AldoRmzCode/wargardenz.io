@@ -128,8 +128,7 @@ class GameScene extends Phaser.Scene {
 					width: 45,
 					height: 45
 				});
-				
-				this.killCount.setScrollFactor(0);
+			
 
 
 
@@ -1813,6 +1812,7 @@ try {
 		var sKey = this.input.keyboard.addKey("S", false);
 		var dKey = this.input.keyboard.addKey("D",false);
 		var cKey = this.input.keyboard.addKey("C", false); //dispara sword
+		var rKey = this.input.keyboard.addKey("R", false);
 		
 		try {
 			this.key = this.mobile && this.joyStick ?  this.joyStick.createCursorKeys() : this.cursors;
@@ -1835,6 +1835,11 @@ try {
 			if (cKey.isDown && this.meSword.visible && !this.chat.toggled) {
 				this.socket.send("throw", []);
 			}
+
+			if (rKey.isDown && this.meSword.visible && !this.chat.toggled) {
+                this.socket.send("ability", []);s
+            }
+
     
 			this.socket.send("move", controller);
 		} catch(e) {
