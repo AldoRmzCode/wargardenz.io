@@ -30,9 +30,9 @@ class TitleScene extends Phaser.Scene {
 
     const pingServers = (sethtml = true) => { 
       var servers = {
-       "us1": "https://srv.wargardenz.com",
-       "us2": "https://srv.wargardenz.com", 
-       "eu1": "https://srv.wargardenz.com"  
+       "us1": "https://wargardenz.com",
+       "us2": "https://wargardenz.com", 
+       "eu1": "https://wargardenz.com"  
       };
 
       var ping = (server) => {
