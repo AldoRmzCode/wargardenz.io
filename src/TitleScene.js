@@ -28,11 +28,11 @@ class TitleScene extends Phaser.Scene {
   create() {
     this.optimalServer = "us2";
 
-    const pingServers = (sethtml = true) => {
+    const pingServers = (sethtml = true) => { 
       var servers = {
-       "us1": "https://wargardenz.herokuapp.com",
-       "us2": "https://wargardenz2.herokuapp.com", 
-       "eu1": "https://wargarden.herokuapp.com"  
+       "us1": "https://srv.wargardenz.com",
+       "us2": "https://srv.wargardenz.com", 
+       "eu1": "https://srv.wargardenz.com"  
       };
 
       var ping = (server) => {
