@@ -27,6 +27,7 @@ const config = {
         },
         { from: "src/title.html", to: "" },
         { from: "src/about.html", to: "" },
+        { from: "src/Proximo.html", to: "" },
         { from: "src/footer.html", to: "" },
         { from: "src/controls.html", to: "" },
         { from: "src/signup.html", to: "" },
