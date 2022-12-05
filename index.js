@@ -43,10 +43,10 @@ if (process.env.USEFISHYSSL === "true") {
   usinghttps = true;
   var options = {
     key: fs.readFileSync(
-      "/etc/letsencrypt/live/www.wargardenz.com/privkey.pem"
+     // "/etc/letsencrypt/live/www.wargardenz.com/privkey.pem"
     ),
     cert: fs.readFileSync(
-      "/etc/letsencrypt/live/www.wargardenz.com/fullchain.pem"
+      //"/etc/letsencrypt/live/www.wargardenz.com/fullchain.pem"
     ),
   };
   httpsserver = https.createServer(options, app).listen(443);
