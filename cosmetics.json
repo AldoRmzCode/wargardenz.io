@@ -144,8 +144,15 @@
             "name": "chicle",
             "displayName": "Chicle",
             "url": "/assets/images/chiclePlayer.png",
-            "price": 90000,
+            "price": 85000,
             "description": "*pop*"
+        },
+        {
+            "name": "flamino",
+            "displayName": "Flamino",
+            "url": "/assets/images/flaminoPlayer.png",
+            "price": 90000,
+            "description": "picaro"
         },
         {
             "name": "pirata",
@@ -158,7 +165,7 @@
             "name": "toxic",
             "displayName": "Toxic",
             "url": "/assets/images/toxicPlayer.png",
-            "price": 90000,
+            "price": 95000,
             "description": "sabor ácido"
         },
         {
@@ -172,7 +179,7 @@
             "name": "curiosito",
             "displayName": "Curiosito",
             "url": "/assets/images/curiositoPlayer.png",
-            "price": 100000,
+            "price": 10000,
             "description": "...¿que estas mirando?"
         },
         {
