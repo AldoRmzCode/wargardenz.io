@@ -129,7 +129,7 @@ class GameScene extends Phaser.Scene {
 					height: 45
 				});
 			
-
+this.killCount.setScrollFactor(0);
 
 
 

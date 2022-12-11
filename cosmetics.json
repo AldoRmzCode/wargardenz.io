@@ -232,6 +232,13 @@
             "description": "ñam"
         },
         {
+            "name": "escarabajo",
+            "displayName": "Escarabajo",
+            "url": "/assets/images/escarabajoPlayer.png",
+            "price": 555555,
+            "description": "."
+        },
+        {
             "name": "Polilla",
             "displayName": "polilla",
             "url": "/assets/images/polillaPlayer.png",
@@ -258,6 +265,13 @@
             "url": "/assets/images/polillamiticaPlayer.png",
             "price": 1600000,
             "description": "extremadamente rara"
+        },
+        {
+            "name": "luciernaga",
+            "displayName": "Luciernaga",
+            "url": "/assets/images/luciernagaPlayer.png",
+            "price": 1600000,
+            "description": "tan brillate"
         },
         {
             "name": "virus",
@@ -348,7 +362,40 @@
             "displayName": "mestreensinador",
             "url": "/assets/images/duendePlayer.png",
             "price": 100,
-            "description": "Tu de niño, (TIEMPO LIMITADO)"
+            "description": "Tu de niño, (TIEMPO LIMITADO)",
+            "especiall": "edicion TIK TOK virales"
+        },
+        {
+            "name": "uriel",
+            "displayName": "Uriel",
+            "url": "/assets/images/UrielPlayer.png",
+            "price": 1000000,
+            "description": "rata piedra preciosa",
+            "especiall": "edicion one coin"
+        },
+        {
+            "name": "puvlo",
+            "displayName": "Puvlo",
+            "url": "/assets/images/puvloPlayer.png",
+            "price": 1000000,
+            "description": "hola mauu",
+            "especiall": "edicion one coin"
+        },
+        {
+            "name": "late",
+            "displayName": "Late",
+            "url": "/assets/images/latePlayer.png",
+            "price": 1000000,
+            "description": "parad, no soy yo",
+            "especiall": "edicion one coin"
+        },
+        {
+            "name": "mauu",
+            "displayName": "Mauu",
+            "url": "/assets/images/mauuPlayer.png",
+            "price": 1000000,
+            "description": "XD",
+            "especiall": "edicion one coin"
         }
     ]
 }
