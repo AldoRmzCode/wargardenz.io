@@ -366,9 +366,9 @@
             "especiall": "edicion TIK TOK virales"
         },
         {
-            "name": "uriel",
-            "displayName": "Uriel",
-            "url": "/assets/images/UrielPlayer.png",
+            "name": "urigod",
+            "displayName": "El Uriel",
+            "url": "/assets/images/ElurielPlayer.png",
             "price": 1000000,
             "description": "rata piedra preciosa",
             "especiall": "edicion one coin"

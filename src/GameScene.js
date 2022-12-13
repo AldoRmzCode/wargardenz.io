@@ -519,7 +519,7 @@ this.killCount.setScrollFactor(0);
 					doit = setTimeout(resize, 100);
 				  });
 				//go packet
-				var server = this.options.server == "eu1" ? "wss://www.wargardenz.com" : this.options.server == "us2" ? "wss://www.wargardenz.com" : "wss://www.wargardenz.com";
+				var server = this.options.server == "eu1" ? "wss://www.wargardenz.com" : this.options.server == "us2" ? "wss://www.wargardenz.com" : "wss://wargardenz.com";
 				// server = undefined; // Enable for localhost/development
 				function isPrivateIP(ip) {
 					//remove port if present
