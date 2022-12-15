@@ -118,3 +118,9 @@ button[type='submit'] {
 
 
   LETRA: C ===>  dispara sword
+
+  ________________________________________________________________________
+  DOMINIO principal:
+  https://developers.cloudflare.com/dns/manage-dns-records/how-to/create-root-domain/
+
+  root= raíz
