@@ -932,7 +932,7 @@ this.killCount.setScrollFactor(0);
 						} else {
 						this.miniMap.people.push({
 							id: player.id,
-							circle: this.add.circle(0, 0, 10, 0xFF0000)
+							circle: this.add.circle(0, 0, 10, 0xFF0000) //circulo rojo de enemigos
 						});
 					}
 				}

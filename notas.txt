@@ -124,3 +124,14 @@ button[type='submit'] {
   https://developers.cloudflare.com/dns/manage-dns-records/how-to/create-root-domain/
 
   root= raíz
+
+
+
+
+  ________________________________________________________________________
+  GOLEM (palabras clave):
+
+  //cambiado de 400 a 1 para no extender demasiado la vida
+
+  //para habilidades y caracterristicas del GOLEM
+  //false para que se cumpla "if(!this.debilidades)"

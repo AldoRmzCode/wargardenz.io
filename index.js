@@ -95,6 +95,9 @@ const { sql } = require("./database");
 const { config } = require("dotenv");
 
 
+const Golem = require("./classes/Golem");
+const AiGolem = require("./classes/AiGolem");
+
 
 const checkifMissingFields = (req,res,next) => {
 if(typeof req.body!=="object" || typeof req.body.password !== "string" || typeof req.body.username !== "string" || typeof req.body.captcha !== "string") {	
@@ -810,6 +813,9 @@ var maxMythicalChests = 1;
 var maxAiPlayers = 20;
 var maxPlayers = 100;
 
+var maxGolems = 0;
+var maxAiGolems = 3;
+
 
 io.on("connection", async (socket) => {
   socket.joinTime = Date.now();
@@ -1147,6 +1153,17 @@ setInterval(async () => {
 	}
 	var normalPlayers = Object.values(PlayerList.players).filter(p => p && !p.ai).length;
 	var aiPlayers = Object.keys(PlayerList.players).length;
+
+
+  
+  var Golems = Object.keys(PlayerList.players).length;
+
+  var AiGolems = Object.keys(PlayerList.players).length;
+
+
+
+
+
 	// console.log(aiNeeded)
   function degrees_to_radians(degrees)
   {
@@ -1218,6 +1235,30 @@ setInterval(async () => {
 		PlayerList.setPlayer(id, theAi);
 		io.sockets.send("new", theAi.getSendObj());
 	}
+
+
+
+
+  
+
+
+  if (normalPlayers > 0 && Golems < maxGolems && getRandomInt(0,100) == 5) {
+		var id = uuidv4();
+		var theAi = new Golem(id);
+		PlayerList.setPlayer(id, theAi);
+		io.sockets.send("new", theAi.getSendObj());
+	}
+
+
+
+  if (normalPlayers > 0 && AiGolems < maxAiGolems && getRandomInt(0,100) == 5) {
+		var id = uuidv4();
+		var theAi = new AiGolem(id);
+		PlayerList.setPlayer(id, theAi);
+		io.sockets.send("new", theAi.getSendObj());
+	}
+
+
 	//send tps to clients
 	if (Date.now() - secondStart >= 1000) {
 		io.sockets.send("tps", tps);
