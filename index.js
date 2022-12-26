@@ -814,7 +814,7 @@ var maxAiPlayers = 20;
 var maxPlayers = 100;
 
 var maxGolems = 0;
-var maxAiGolems = 3;
+var maxAiGolems = 4;
 
 
 io.on("connection", async (socket) => {
