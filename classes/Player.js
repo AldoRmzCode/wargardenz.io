@@ -215,7 +215,11 @@ var move = true;
         point[1] - (Math.cos(angle) * distance)
     ];
   }
-  doKnockback(player, angle=player.calcSwordAngle()) {
+
+
+
+
+  doKnockback(player, angle=player.calcSwordAngle()) {  //empujar (importante)
     const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
     
     var oldPos = this.pos;
@@ -225,10 +229,16 @@ var move = true;
     this.pos.x = clamp(pos[0], -(map/2), map/2);
     this.pos.y = clamp(pos[1],-(map/2), map/2);
 
-    if(this.touchingPlayer(player)) {
+    if(this.touchingPlayer(player)) { //si tocas a jugador lo cambias de lugar
       this.pos = oldPos;
     }
   }
+
+
+
+
+
+
   collectCoins(coins, io, levels) {
     
 
@@ -332,8 +342,8 @@ return false;
     this.damage =  (80 * this.scale > 30 ? 30 +(((80 * this.scale) - 30) / 5) : 80 * this.scale );
     this.speed = clamp(740 -  (this.scale* 160),350,570);
 
-    this.power = convert(0.25, 200, this.scale);
-    this.resistance = convert(0.25, 20, this.scale);
+    this.power = convert(0.25, 200, this.scale); //valores de EMPUJE
+    this.resistance = convert(0.25, 20, this.scale); //valores de EMPUJE
 
     this.damageCooldown = (50 + (this.level * 12))*2;
     this.healAmount = 1;

@@ -317,23 +317,29 @@ var move = true;
         point[1] - (Math.cos(angle) * distance)
     ];
   }
-  doKnockback(player, angle=player.calcSwordAngle()) {
+
+
+
+  doKnockback(player, angle=player.calcSwordAngle()) { //empujar (importante)
     const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
     
-    var oldPos = this.pos;
+    var oldPos = this.pos; //cambio de posicion
 
   var pos = this.movePointAtAngle([this.pos.x, this.pos.y], (angle+45)*Math.PI/180 , Math.max(player.power-this.resistance,50));
     
     this.pos.x = clamp(pos[0], -(map/2), map/2);
     this.pos.y = clamp(pos[1],-(map/2), map/2);
 
-    if(this.touchingPlayer(player)) {
-      this.pos = oldPos;
+    if(this.touchingPlayer(player)) { //si tocas a jugador lo cambias de lugar
+      this.pos = oldPos; 
     }
   }
+
+
+
+
   collectCoins(coins, io, levels) {
     
-
            var touching = coins.filter((coin) => coin.touchingPlayer(this));
 
         touching.forEach((coin) => {
@@ -342,16 +348,13 @@ var move = true;
           if(this.level <= levels.length && this.coins >= levels[this.level-1].coins) {
             //lvl up!
   
-
             var oldLevel = this.level;
           var levelsPassed = [];
                 
-              
                 var evoLevels = levelsPassed.slice(oldLevel-this.level).filter(level => level.evolutions)?.map((e)=>e.evolutions).map((e)=>e.map((f)=>f.name));
                 this.evolutionQueue = [...this.evolutionQueue, ...evoLevels].filter((e)=>e);
               
                 if(levelsPassed.length > 0) this.checkSubEvolutions();
-            
           }
 
 
@@ -426,8 +429,8 @@ return false;
     this.damage =  (80 * this.scale > 30 ? 30 +(((80 * this.scale) - 30) / 5) : 80 * this.scale );
     this.speed = clamp(740 -  (this.scale* 160),0,1);//minimo y maximo en 0y1
 
-    this.power = convert(0.25, 200, this.scale);
-    this.resistance = convert(0.25, 20, this.scale);
+    this.power = convert(0.25, 200, this.scale); //valores de EMPUJE
+    this.resistance = convert(0.25, 20, this.scale); //valores de EMPUJE
 
     this.damageCooldown = (50 + (this.level * 12))*2;
     this.healAmount = 1;
@@ -490,8 +493,6 @@ return false;
       this.health += (this.leech-1) * (oldHealth - Math.max(0, enemy.health));
       if(this.health > this.maxHealth) this.health = this.maxHealth;
 
-
-
     if (enemy.health <= 0) {
       if(!this.ai && socket) socket.send("dealHit", [enemy.id]);
       if(!enemy.ai && socketById) socketById.send("takeHit", [this.id]);
@@ -504,6 +505,7 @@ return false;
       //tell clients that this enemy died
       if(!enemy.ai && socketById) {
 
+        
         
       socketById.send("youDied", {
         killedBy: this.name,
