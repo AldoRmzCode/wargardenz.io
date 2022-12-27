@@ -97,7 +97,7 @@ const { config } = require("dotenv");
 
 const Golem = require("./classes/Golem");
 const AiGolem = require("./classes/AiGolem");
-
+const Dionaea = require("./classes/Dionaea");
 
 const checkifMissingFields = (req,res,next) => {
 if(typeof req.body!=="object" || typeof req.body.password !== "string" || typeof req.body.username !== "string" || typeof req.body.captcha !== "string") {	
@@ -814,7 +814,9 @@ var maxAiPlayers = 20;
 var maxPlayers = 100;
 
 var maxGolems = 0;
-var maxAiGolems = 4;
+var maxAiGolems = 3;
+
+var maxDionaeas = 0;
 
 
 io.on("connection", async (socket) => {
@@ -1155,10 +1157,12 @@ setInterval(async () => {
 	var aiPlayers = Object.keys(PlayerList.players).length;
 
 
-  
+  //Golems en lista de jugadores
   var Golems = Object.keys(PlayerList.players).length;
 
   var AiGolems = Object.keys(PlayerList.players).length;
+
+  var Dionaeas = Object.keys(PlayerList.players).length;
 
 
 
@@ -1229,6 +1233,9 @@ setInterval(async () => {
   });
   io.sockets.send("flyingSwords", flyingSwords);
 
+
+
+  //AiPlayers
 	if (normalPlayers > 0 && aiPlayers < maxAiPlayers && getRandomInt(0,100) == 5) {
 		var id = uuidv4();
 		var theAi = new AiPlayer(id);
@@ -1236,12 +1243,7 @@ setInterval(async () => {
 		io.sockets.send("new", theAi.getSendObj());
 	}
 
-
-
-
-  
-
-
+//Golems
   if (normalPlayers > 0 && Golems < maxGolems && getRandomInt(0,100) == 5) {
 		var id = uuidv4();
 		var theAi = new Golem(id);
@@ -1249,14 +1251,23 @@ setInterval(async () => {
 		io.sockets.send("new", theAi.getSendObj());
 	}
 
-
-
+//AiGolems
   if (normalPlayers > 0 && AiGolems < maxAiGolems && getRandomInt(0,100) == 5) {
 		var id = uuidv4();
 		var theAi = new AiGolem(id);
 		PlayerList.setPlayer(id, theAi);
 		io.sockets.send("new", theAi.getSendObj());
 	}
+
+//Dionaeas---------------------------------------------------min,max
+if (normalPlayers > 0 && Dionaeas < maxDionaeas && getRandomInt(1,100) == 5) {
+  var id = uuidv4();
+  var theAi = new Dionaea(id);
+  PlayerList.setPlayer(id, theAi);
+  io.sockets.send("new", theAi.getSendObj());
+}
+
+
 
 
 	//send tps to clients

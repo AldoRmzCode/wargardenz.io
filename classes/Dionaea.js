@@ -8,18 +8,18 @@ function getRandomInt(min, max) {
 var map = 15000;
 const evolutions = require("./evolutions");
 
-class Golem { 
+class Dionaea { 
   constructor(id) {
-    this.ai = false;
+    this.ai = true;
     this.ranking = false;
     this.movementMode = "mouse";
     this.id = id;
-    this.name = "Ai-WG-GOLEM";
+    this.name = "Dionaea";
     this.health = 100;
-    this.coins = 1000;
-    this.pos = {x: getRandomInt(-250,250), y: getRandomInt(-250,250)}; //punto de aparicion del player en mapa
+    this.coins = 0;
+    this.pos = {x: getRandomInt(-50,50), y: getRandomInt(-50,50)}; //punto de aparicion del player en mapa
     this.kills = 0;
-    this.speed = 700;
+    this.speed = 1;
     this.scale = 0.25;
     this.damage = 10;
     this.level = 1;
@@ -44,32 +44,113 @@ class Golem {
     this.ability = 0;
     this.abilityActive = false;  //player normal sin evolucion
     
-   this.skin = "golem";
+   this.skin = "zombie";
     this.levelScale = 0.25;
 
-    this.resistance = 30;
+    this.resistance = 90;
     this.power = 200;
 
     this.maxHealth = 100;  //vida de player
-    this.lastPos = this.pos;
+    this.lastPos = this.pos; //posicion en mapaa
     this.lastSwing = Date.now();
     this.joinTime = Date.now();
     this.lastHit = Date.now();
     this.lastRegen = Date.now();
-    this.mouseDown = false;
+    this.mouseDown = true; //cambiado de false a true(es clic con el mause)
     this.mousePos = {x:0,y:0,viewport:{width:1920,height:1080}};
     this.size = 500;
     this.radius = this.size / 2;
-    this.lastMove = Date.now();
+    this.lastMove = Date.now(); //NO BORRAR
   }
-
 
 
 //--------------------------------IA empieza
 
 
 
+tick(coins, io, levels, chests) {
+  if(PlayerList.deadPlayers.includes(this.id)) {
+    PlayerList.deletePlayer(this.id);
+  } else {
+const lerp = (x, y, a) => x * (1 - a) + y * a; 
+if(!this.target || !this.entityExists(this.target,this.getEntities(coins))) this.target = this.getClosestEntity(this.getEntities(coins));
+  if(this.target) {
+    if(this.target.type == "player") this.chaseTime += 1;
+    if(this.target.type==="player" && Date.now() - this.lastHit > getRandomInt(300, 700)) {
+      
+      if(this.chaseTime > 20) {
+        this.target = this.getClosestEntity(coins);
+        this.chaseTime = 0;
+      }
+      this.lastHit = Date.now();
+     [coins,chests] = this.down(!this.mouseDown, coins, io, chests);
+    } 
+    var tPos = this.getTpos();
+    this.toSword = {
+      x: this.mousePos.viewport.width / 2 + (tPos.x - this.pos.x),
+      y: this.mousePos.viewport.height / 2 + (tPos.y - this.pos.y)
+  };
+    this.mousePos.x = lerp(this.mousePos.x, this.toSword.x, 0.2); 
+    this.mousePos.y = lerp(this.mousePos.y, this.toSword.y, 0.2);
 
+  }
+//  var controller = this.getController();
+//  this.move(controller);
+this.move();
+ coins = this.collectCoins(coins, io, levels);
+  }
+
+
+  return [coins,chests];
+}
+
+
+
+
+getController() {
+  var controller = {
+    left: false,
+    right: false,
+    up: false,
+    down: false
+  };
+  if(this.target) {
+    var tPos = this.getTpos();
+  
+  if(tPos.x > this.pos.x) controller.right = true;
+  if(tPos.x < this.pos.x) controller.left = true;
+  if(tPos.y > this.pos.y) controller.down = true;
+  if(tPos.y < this.pos.y) controller.up = true;
+  }
+  return controller;
+}
+getEntities(coins) {
+  var players = Object.values(PlayerList.players).filter(p=>p && p.id !== this.id && Date.now() - p.joinTime > 5000);
+  var entities = players.concat(coins);
+  return (this.coins < 5000 && Date.now() - this.joinTime < 5000 ? coins : (this.coins < 5000 ? entities : players));
+  //return players
+}
+getTpos() {
+  try {
+  return (this.target.type == "player" ? PlayerList.getPlayer(this.target.id).getSendObj().pos : this.target.pos);
+  } catch(e) {
+    return this.target.pos;
+  }
+}
+entityExists(entity, entities) {
+  return entities.filter(f=>f.id == entity.id).length > 0;
+}
+getClosestEntity(entities) {
+  if(entities.length > 0) {  //length=longitud
+  const distanceFromThis = (pos) => Math.hypot(this.pos.x - pos.x, this.pos.y - pos.y); 
+  var closest = entities.sort((a,b)=>distanceFromThis(a.pos)-distanceFromThis(b.pos))[0]; //distancia
+  if(closest.hasOwnProperty("joinTime")) {
+    closest = closest.getSendObj();
+    closest.type = "player";
+  } else closest.type ="coin";
+  return closest;
+} else return undefined;
+}
 
 
 //--------------------------------------------IA TERMINA
@@ -78,13 +159,7 @@ class Golem {
 
 
 
-
-
-
-
-
   moveWithMouse() {
-
   if(Date.now() - this.lastMove > 5000) this.lastMove = (Date.now() - 1000); 
     var since =( Date.now() - this.lastMove ) / 1000;
     
@@ -113,6 +188,11 @@ go *= power/100;
 
   return this.calcSwordAngle()+45;
   }
+
+
+
+
+
   move(controller) {
     function getCardinal(angle) {
       /** 
@@ -315,7 +395,7 @@ var move = true;
   var tip = this.movePointAtAngle([sword.x, sword.y], ((angle+45) * Math.PI / 180), (this.radius*this.scale)*0.8);
   var base = this.movePointAtAngle([sword.x, sword.y], ((angle+45) * Math.PI / 180), (this.radius*this.scale)*-1.5);
 
-                          //get the values needed for line-circle-collison
+                          //get the values needed for line-circle-collison (obtener los valores necesarios para la línea-círculo-colisión)
                        
                           var radius = player.radius *player.scale;
 
@@ -336,7 +416,7 @@ return false;
     var dist = Math.sqrt(Math.pow(this.pos.x - player.pos.x, 2) + Math.pow(this.pos.y - player.pos.y, 2));
       return dist <= show;
   }
-  updateValues() {
+  updateValues() { //actualizar valores (daño, escala, subir de nivel, etc.)
     const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
     const convert = (num, val, newNum) => (newNum * val) / num;
     var percent = this.health / this.maxHealth;
@@ -344,7 +424,7 @@ return false;
     this.maxHealth = this.scale * 400;
     this.health = percent * this.maxHealth;
     this.damage =  (80 * this.scale > 30 ? 30 +(((80 * this.scale) - 30) / 5) : 80 * this.scale );
-    this.speed = clamp(740 -  (this.scale* 160),350,570);
+    this.speed = clamp(740 -  (this.scale* 160),0,1);//minimo y maximo en 0y1
 
     this.power = convert(0.25, 200, this.scale);
     this.resistance = convert(0.25, 20, this.scale);
@@ -368,19 +448,18 @@ return false;
       } else this.abilityActive = false;
     }
 
-    if(!this.debilidades) {  //para habilidades y caracterristicas del GOLEM
-      this.speed *= 0.5;
+    if(!this.debilidades) {  //para habilidades y caracterristicas de la Dionaea
    this.resistance *= 6.5;
  this.maxHealth *= 100;
    this.health *= 100;
    this.damage *= 20;
    this.power *= 1.6;
- this.scale *= 5.5;
+ this.scale *= 2;
  
 
     }
-
   }
+
   down(down, coins, io, chests) {
     this.mouseDown = down;
     return this.checkCollisions(coins,chests, io);
@@ -389,7 +468,7 @@ return false;
     const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
     var socketById = io.sockets.sockets.get(enemy.id);
     var socket = io.sockets.sockets.get(this.id);
-    //if colliding
+    //if colliding(si colisiona...)
 
     if(this.ai) {
       this.target = this.getClosestEntity(this.getEntities(coins));
@@ -440,7 +519,7 @@ return false;
           killedBy: {id: this.id, name: this.name},
         }]);
       }
-      //drop their coins
+      //drop their coins (soltar monedas)
       var drop = [];
       var dropAmount = enemy.coins < 13 ? 10 : Math.round(enemy.coins < 25000 ? enemy.coins * 0.8 : Math.log10(enemy.coins) * 30000 - 111938.2002602);
       var dropped = 0;
@@ -485,7 +564,7 @@ return false;
   return coins;
   }
   checkCollisions(coins, chests, io) {
-    //hit cooldown
+    //hit cooldown (Enfriamiento del golpe)
 
         
     if (this.mouseDown && Date.now() - this.lastSwing > this.damageCooldown) {
@@ -559,4 +638,4 @@ return false;
   }
 }
 
-module.exports = Golem;
+module.exports = Dionaea;

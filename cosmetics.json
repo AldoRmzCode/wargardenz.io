@@ -281,6 +281,13 @@
             "description": "01010111 01000111"
         },
         {
+            "name": "florencio",
+            "displayName": "Florencio",
+            "url": "/assets/images/florencioPlayer.png",
+            "price": 18000000,
+            "description": "si"
+        },
+        {
             "name": "omega",
             "displayName": "OMEGA",
             "url": "/assets/images/omegaPlayer.png",
