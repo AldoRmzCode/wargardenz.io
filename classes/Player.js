@@ -373,7 +373,7 @@ return false;
     const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
     var socketById = io.sockets.sockets.get(enemy.id);
     var socket = io.sockets.sockets.get(this.id);
-    //if colliding
+    //if colliding(si colicionan...)
 
     if(this.ai) {
       this.target = this.getClosestEntity(this.getEntities(coins));
@@ -395,7 +395,7 @@ return false;
       this.health += (this.leech-1) * (oldHealth - Math.max(0, enemy.health));
       if(this.health > this.maxHealth) this.health = this.maxHealth;
 
-    if (enemy.health <= 0) {
+    if (enemy.health <= 0) { //vida del enemigo menor a 0
       if(!this.ai && socket) socket.send("dealHit", [enemy.id]);
       if(!enemy.ai && socketById) socketById.send("takeHit", [this.id]);
       //enemy has 0 or less than 0 health, time to kill
@@ -457,7 +457,7 @@ return false;
       //disconnect the socket
     // if(!enemy.ai && socketById) socketById.disconnect();
     } else {
-      enemy.doKnockback(this, angle);
+      enemy.doKnockback(this, angle); //empujar hacia atras al enemigo (importante)
       if(!this.ai && socket) socket.send("dealHit", [enemy.id, enemy.pos]);
       if(!enemy.ai && socketById) socketById.send("takeHit", [this.id, this.pos]);
     }

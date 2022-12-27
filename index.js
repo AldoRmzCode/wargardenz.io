@@ -1010,11 +1010,11 @@ io.on("connection", async (socket) => {
   socket.on("throw", () => {
     if(PlayerList.has(socket.id)) {
       var player = PlayerList.getPlayer(socket.id);
-      if(!player.swordInHand) return;
-      if(Date.now() - player.lastSwordThrow < 5000) return;
-      player.swordInHand = false;
+      if(!player.swordInHand) return; //hacer que la espada reaparazca en tu mano despues de lanzarla(si se borra=aurakill)
+      if(Date.now() - player.lastSwordThrow < 5000) return; //milisegundos para refrescar lanzamineto de espada
+      player.swordInHand = false;//si tienes o no la espada en la mano al lanzarla
       flyingSwords.push({hit: [], scale: player.scale, x: player.pos.x, y: player.pos.y, time: Date.now(), angle: player.calcSwordAngle(), skin: player.skin, id: socket.id});
-      player.lastSwordThrow = Date.now();
+      player.lastSwordThrow = Date.now();               //(pos xy) movimeinto de la espada hacia delante del jugador
       PlayerList.updatePlayer(player);
     } else socket.send("refresh");
   });

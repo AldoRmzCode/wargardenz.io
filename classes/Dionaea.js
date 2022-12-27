@@ -490,6 +490,8 @@ return false;
       this.health += (this.leech-1) * (oldHealth - Math.max(0, enemy.health));
       if(this.health > this.maxHealth) this.health = this.maxHealth;
 
+
+
     if (enemy.health <= 0) {
       if(!this.ai && socket) socket.send("dealHit", [enemy.id]);
       if(!enemy.ai && socketById) socketById.send("takeHit", [this.id]);
@@ -502,7 +504,6 @@ return false;
       //tell clients that this enemy died
       if(!enemy.ai && socketById) {
 
-        
         
       socketById.send("youDied", {
         killedBy: this.name,
@@ -552,12 +553,12 @@ return false;
       //disconnect the socket
     // if(!enemy.ai && socketById) socketById.disconnect();
     } else {
-      enemy.doKnockback(this, angle);
+      enemy.doKnockback(this, angle); //empujar hacia atras al enemigo (importante)
       if(!this.ai && socket) socket.send("dealHit", [enemy.id, enemy.pos]);
       if(!enemy.ai && socketById) socketById.send("takeHit", [this.id, this.pos]);
     }
   } else {
-    enemy.doKnockback(this, angle);
+    enemy.doKnockback(this, angle); 
     if(!this.ai && socket) socket.send("dealHit", [enemy.id]);
     if(!enemy.ai && socketById) socketById.send("takeHit", [this.id]);
   }

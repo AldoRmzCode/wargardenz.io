@@ -732,7 +732,7 @@ this.killCount.setScrollFactor(0);
 					if (this.enemies.filter(e => e.id === player.id).length > 0) return;
 					/* vendors contains the element we're looking for */
 
-					var enemy = {
+					var enemy = { //enemigo caracteristicas
 						id: player.id,
 						down: false,
 						playerObj: undefined,
@@ -752,6 +752,12 @@ this.killCount.setScrollFactor(0);
 						}).setDepth(71).setOrigin(0.5),
 						chatTween: undefined,
 					};
+
+//enemigo caracteristicas terminan
+
+
+
+
 
 					if(!this.textures.exists(player.skin+"Player") ) {
 						if(!this.failedLoads.includes(player.skin)){ 
@@ -795,7 +801,7 @@ this.killCount.setScrollFactor(0);
 					this.UICam.ignore([enemy.player, enemy.bar.bar, enemy.sword, enemy.nameTag,enemy.chatText, this.graphics]);
 					this.enemies.push(enemy);
 
-					var circle = this.add.circle(0, 0, 10, 0xFF0000);
+					var circle = this.add.circle(0, 0, 10, 0xFF0000); //circulo rojo
 					this.cameras.main.ignore(circle);
 					circle.setDepth(98);
 					// this.miniMap.people.push(
@@ -810,7 +816,7 @@ this.killCount.setScrollFactor(0);
 						enemy.player.setAlpha(0.5);
 						enemy.sword.setAlpha(0.5);
 						enemy.bar.bar.setAlpha(0.5);
-						//use a tween to make the player a bit transparent for 5 seconds
+						//use a tween to make the player a bit transparent for 5 second(un poco transparente durante cinco segundos) 
 						setTimeout(() => {
 						this.tweens.add({
 							targets: [enemy.player, enemy.sword, enemy.bar.bar],

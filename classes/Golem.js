@@ -473,7 +473,7 @@ return false;
       //disconnect the socket
     // if(!enemy.ai && socketById) socketById.disconnect();
     } else {
-      enemy.doKnockback(this, angle);
+      enemy.doKnockback(this, angle); //empujar hacia atras al enemigo (importante)
       if(!this.ai && socket) socket.send("dealHit", [enemy.id, enemy.pos]);
       if(!enemy.ai && socketById) socketById.send("takeHit", [this.id, this.pos]);
     }
