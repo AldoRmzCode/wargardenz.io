@@ -17,7 +17,7 @@ class Golem {
     this.name = "Ai-WG-GOLEM";
     this.health = 100;
     this.coins = 1000;
-    this.pos = {x: getRandomInt(-250,250), y: getRandomInt(-250,250)}; //punto de aparicion del player en mapa
+    this.pos = {x: getRandomInt(-450,450), y: getRandomInt(-450,450)}; //punto de aparicion del player en mapa
     this.kills = 0;
     this.speed = 700;
     this.scale = 0.25;
@@ -47,7 +47,7 @@ class Golem {
    this.skin = "golem";
     this.levelScale = 0.25;
 
-    this.resistance = 30;
+    this.resistance = 100;
     this.power = 200;
 
     this.maxHealth = 100;  //vida de player
@@ -58,7 +58,7 @@ class Golem {
     this.lastRegen = Date.now();
     this.mouseDown = false;
     this.mousePos = {x:0,y:0,viewport:{width:1920,height:1080}};
-    this.size = 500;
+    this.size = 270;
     this.radius = this.size / 2;
     this.lastMove = Date.now();
   }
@@ -347,7 +347,7 @@ return false;
     this.speed = clamp(740 -  (this.scale* 160),350,570);
 
     this.power = convert(0.25, 200, this.scale);
-    this.resistance = convert(0.25, 20, this.scale);
+    this.resistance = convert(0.25, 99999, this.scale);
 
     this.damageCooldown = (50 + (this.level * 12))*2;
     this.healAmount = 1;
@@ -374,9 +374,9 @@ return false;
  this.maxHealth *= 100;
    this.health *= 100;
    this.damage *= 20;
-   this.power *= 1.6;
+   this.power *= 1.7;
  this.scale *= 5.5;
- 
+
 
     }
 

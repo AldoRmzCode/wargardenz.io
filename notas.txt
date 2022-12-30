@@ -114,12 +114,9 @@ button[type='submit'] {
 
   https://github.com/photonstorm/phaser/issues/4052
 
-  ________________________________________________________________________
-
-
-  LETRA: C ===>  dispara sword
 
   ________________________________________________________________________
+  
   DOMINIO principal:
   https://developers.cloudflare.com/dns/manage-dns-records/how-to/create-root-domain/
 
@@ -135,3 +132,28 @@ button[type='submit'] {
 
   //para habilidades y caracterristicas del GOLEM
   //false para que se cumpla "if(!this.debilidades)"
+
+  ________________________________________________________________________
+
+  CLIC DERECHO:
+  this.input.on("pointerdown", function (pointer) {
+
+
+    
+  LETRA: C ===>  dispara sword
+rightButtonDown  ====> dispara sword
+
+
+________________________________________________________________________
+
+
+
+DAÑO NORMAL CON ESPADA: = "mouseDown"
+(PALABRAS CLAVE):
+
+//false = desactiva daño normal con espada que provocan judadores reales
+
+
+
+
+________________________________________________________________________

@@ -814,9 +814,10 @@ var maxAiPlayers = 20;
 var maxPlayers = 100;
 
 var maxGolems = 0;
-var maxAiGolems = 3;
+var maxAiGolems = 2;
 
-var maxDionaeas = 0;
+var maxDionaeas = 4;
+
 
 
 io.on("connection", async (socket) => {
@@ -1180,8 +1181,8 @@ setInterval(async () => {
         point[1] - (Math.cos(angle) * distance)
     ];
   }
-  flyingSwords.forEach((sword, i) => {
-    var a = degrees_to_radians(sword.angle-45);
+  flyingSwords.forEach((sword, i) => { 
+    var a = degrees_to_radians(sword.angle-45); //angulo de espada en aire (45)
     sword.x += Math.cos(a) * 100;
     sword.y += Math.sin(a) * 100;
     

@@ -4,6 +4,8 @@ import { subscribe, isSupported } from "on-screen-keyboard-detector";
 import ClassPicker from "./components/ClassPicker.js";
 import {locations} from "./bushes.json";
 import {tlocations} from "./trampas.json";
+import {llocations} from "./lagos.json";
+
 import Phaser from "phaser";
 import {CAPTCHASITE,localServer} from "./../config.json";
 
@@ -106,7 +108,7 @@ class GameScene extends Phaser.Scene {
 					fontFamily: "franklin-gothic-medium-cond",
 				}).setOrigin(0.5).setDepth(71);
 				this.meChatTween = undefined;
-				this.swordAnim = {go: false, added: 0};
+				this.swordAnim = {go: false, added: 0}; //animacion de la espada al atacar normal(true=sin movimiento solo el original sin oprimir nada)
 				this.myObj = undefined;
 
 
@@ -244,7 +246,7 @@ this.killCount.setScrollFactor(0);
 			  if(this.deadText.visible) {
                        this.callback();
                     this.socket.disconnect();
-          this.scene.start("title");
+          this.scene.start("title");  //morir te lleva al titulo
 			  }
             
           }
@@ -313,7 +315,7 @@ this.killCount.setScrollFactor(0);
 				this.enemies = [];
 				this.dead = false;
 				this.spectating = false;
-				//arrow keys
+				//arrow keys (movimeinto con teclado)
 				var KeyCodes = Phaser.Input.Keyboard.KeyCodes;
 				this.cursors = this.input.keyboard.addKeys({
 					up: KeyCodes.UP,
@@ -398,6 +400,20 @@ this.killCount.setScrollFactor(0);
 							  this.trampas.push(this.add.image(l.x, l.y, "trampa").setScale(l.scale).setDepth(70));
 							  this.UICam.ignore(this.trampas[this.trampas.length-1]);
 						  });
+
+
+
+//lagos
+this.lagos = [];
+
+llocations.forEach((l,i) => {
+	if(i%2==0) return;
+			  this.lagos.push(this.add.image(l.x, l.y, "lago").setScale(l.scale).setDepth(3));
+			  this.UICam.ignore(this.lagos[this.lagos.length-1]);
+		  });
+
+
+
 
 
 				this.input.addPointer(3);
@@ -563,8 +579,8 @@ this.killCount.setScrollFactor(0);
 						if(pointer) {
 						this.gamePoint = {x: pointer.x, y: pointer.y};
 						}
-						this.mouseDown = true;
-						this.socket.send("mouseDown", true);
+						this.mouseDown = true;  //false = desactiva daño normal con espada que provocan judadores reales (no al lanzar espada)
+						this.socket.send("mouseDown", true); //false = desactiva daño normal con espada que provocan judadores reales
 
 					}
 				};
@@ -589,7 +605,7 @@ this.killCount.setScrollFactor(0);
 					this.input.keyboard.on("keyup-SPACE", () => {
 						mouseUp();
 					}, this);
-				this.input.on("pointerdown", function (pointer) {
+				this.input.on("pointerdown", function (pointer) {   //CLIC DERECHO (IMPORTANTE)
 					if(pointer.rightButtonDown() && this.meSword.visible) this.socket.send("throw", []);
 					else mouseDown(pointer);
 					
@@ -740,6 +756,7 @@ this.killCount.setScrollFactor(0);
 						sword: this.add.image(player.pos.x, player.pos.y, "playerSword").setScale(0.25).setDepth(49),
 						player: this.add.image(player.pos.x, player.pos.y, "playerPlayer").setScale(0.25).setDepth(49),
 						bar: new HealthBar(this, player.pos.x, player.pos.y + 55),
+
 						nameTag: this.add.rexBBCodeText(player.pos.x, player.pos.y - 90, `${player.name}`, {
 							fontFamily: "serif",
 							fill: player.verified?player.name.toLowerCase()=="AldoRmzCode" ||player.name.toLowerCase()=="codergautam"||player.name.toLowerCase()=="cosmicwarlord"?"#FF0000":"#ff00ae" :"#000000",
@@ -758,7 +775,7 @@ this.killCount.setScrollFactor(0);
 
 
 
-
+//texturas comparadas y texturas normales(playerPlayer)
 					if(!this.textures.exists(player.skin+"Player") ) {
 						if(!this.failedLoads.includes(player.skin)){ 
 						this.load.image(`${player.skin}Player`, `/assets/images/${player.skin}Player.png`);
@@ -1013,6 +1030,32 @@ this.killCount.setScrollFactor(0);
 							this.throwBtn.btn.setVisible(true);
 						}
 
+
+
+/*
+//dionaea
+
+
+nameTag: this.add.rexBBCodeText(player.pos.x, player.pos.y - 90, `${player.name}`, {
+							fontFamily: "serif",
+							fill: player.verified?player.name.toLowerCase()=="AldoRmzCode" ||player.name.toLowerCase()=="codergautam"||player.name.toLowerCase()=="cosmicwarlord"?"#FF0000":"#ff00ae" :"#000000",
+							fontSize: "25px"
+						})
+
+
+						if(this.Player.texture != "dionaeaPlayer") {
+
+		HealthBar = false;
+
+
+		healthBar.setVisible(false);
+		}
+  	else enemy.sword.setVisible(true);
+
+
+if(!this.name = "Dionaea")
+
+*/
 						if(player.level >= this.levels.length  && player.coins >= this.levels[this.levels.length - 1].coins) {
 							this.lvlState.setText("Max Level");
 							this.lvlBar.setLerpValue(100);
@@ -1866,12 +1909,12 @@ try {
 		this.mePlayer.angle = this.meSword.angle + 45 +180;
 
 
-		//sword animation
+		//sword animation (animacion de espada)
 		/*
 		if (this.mouseDown ) {
-			if(this.swordAnim.added <= 0) this.swordAnim.go = true;
+			if(this.swordAnim.added <= 0) this.swordAnim.go = true;  //NORMAL
 		}
-		else if(this.swordAnim.added >= 50) this.swordAnim.go = false;
+		else if(this.swordAnim.added >= 50) this.swordAnim.go = false;  //AL ATACAR
         
         
 		if(this.swordAnim.go) {

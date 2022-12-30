@@ -55,7 +55,7 @@ class Player {
     this.joinTime = Date.now();
     this.lastHit = Date.now();
     this.lastRegen = Date.now();
-    this.mouseDown = false;
+    this.mouseDown = false; //sin oprimir clic izquierdo para atacar
     this.mousePos = {x:0,y:0,viewport:{width:1920,height:1080}};
     this.size = 300;
     this.radius = this.size / 2;
@@ -89,7 +89,7 @@ go *= power/100;
     this.pos.y = clamp(pos[1],-(map/2), map/2);
 
 
-  return this.calcSwordAngle()+45;
+  return this.calcSwordAngle()+45; //angulo espada
   }
   move(controller) {
     function getCardinal(angle) {
@@ -343,7 +343,7 @@ return false;
     this.speed = clamp(740 -  (this.scale* 160),350,570);
 
     this.power = convert(0.25, 200, this.scale); //valores de EMPUJE
-    this.resistance = convert(0.25, 20, this.scale); //valores de EMPUJE
+    this.resistance = convert(0.25, 20, this.scale); //resistencia a EMPUJE (resistance)
 
     this.damageCooldown = (50 + (this.level * 12))*2;
     this.healAmount = 1;

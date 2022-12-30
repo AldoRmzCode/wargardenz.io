@@ -11,7 +11,7 @@ const evolutions = require("./evolutions");
 class Dionaea { 
   constructor(id) {
     this.ai = true;
-    this.ranking = false;
+    //this.ranking = false;
     this.movementMode = "mouse";
     this.id = id;
     this.name = "Dionaea";
@@ -27,7 +27,7 @@ class Dionaea {
     this.damageCooldown = 100;
     this.verified = false;
 
-    this.swordInHand = true;
+    this.swordInHand = false;
     this.lastSwordThrow = 0;
     this.debilidades = false;  //false para que se cumpla "if(!this.debilidades)"  
 
@@ -44,10 +44,10 @@ class Dionaea {
     this.ability = 0;
     this.abilityActive = false;  //player normal sin evolucion
     
-   this.skin = "zombie";
+   this.skin = "dionaea";
     this.levelScale = 0.25;
 
-    this.resistance = 90;
+    this.resistance = 100;
     this.power = 200;
 
     this.maxHealth = 100;  //vida de player
@@ -56,10 +56,10 @@ class Dionaea {
     this.joinTime = Date.now();
     this.lastHit = Date.now();
     this.lastRegen = Date.now();
-    this.mouseDown = true; //cambiado de false a true(es clic con el mause)
+    this.mouseDown = true; //cambiado de false a true(es clic derecho con el mause)
     this.mousePos = {x:0,y:0,viewport:{width:1920,height:1080}};
-    this.size = 500;
-    this.radius = this.size / 2;
+    this.size = 28; //HITBOX (importante) (no cambia el tamaño)
+    this.radius = this.size / 2; //HITBOX tambien
     this.lastMove = Date.now(); //NO BORRAR
   }
 
@@ -199,7 +199,7 @@ go *= power/100;
        * Customize by changing the number of directions you have
        * We have 8
        */
-      const degreePerDirection = 360 / 8;
+      const degreePerDirection = 360 / 8; //direcciones
     
       /** 
        * Offset the angle by half of the degrees per direction
@@ -421,7 +421,7 @@ return false;
   }
   updateValues() { //actualizar valores (daño, escala, subir de nivel, etc.)
     const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
-    const convert = (num, val, newNum) => (newNum * val) / num;
+    const convert = (num, val, newNum) => (newNum * val) / num; //-----parametros para resistencia y empuje
     var percent = this.health / this.maxHealth;
     this.scale = this.levelScale;
     this.maxHealth = this.scale * 400;
@@ -430,7 +430,10 @@ return false;
     this.speed = clamp(740 -  (this.scale* 160),0,1);//minimo y maximo en 0y1
 
     this.power = convert(0.25, 200, this.scale); //valores de EMPUJE
-    this.resistance = convert(0.25, 20, this.scale); //valores de EMPUJE
+    this.resistance = convert(0.25, 80000, this.scale); //resistencia a EMPUJE (resistance)
+//-------------------------------num, val, newNum
+
+
 
     this.damageCooldown = (50 + (this.level * 12))*2;
     this.healAmount = 1;
@@ -457,8 +460,7 @@ return false;
    this.health *= 100;
    this.damage *= 20;
    this.power *= 1.6;
- this.scale *= 2;
- 
+ this.scale *= 4;
 
     }
   }
