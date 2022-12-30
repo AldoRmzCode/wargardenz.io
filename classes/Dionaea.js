@@ -97,7 +97,10 @@ if(!this.target || !this.entityExists(this.target,this.getEntities(coins))) this
 //  var controller = this.getController();
 //  this.move(controller);
 this.move();
- coins = this.collectCoins(coins, io, levels);
+
+
+ // coins = this.collectCoins(coins, io, levels);   ------>   PARA RECOGER MONEDAS(descomentar=recoger)
+
   }
 
 
@@ -124,12 +127,20 @@ getController() {
   }
   return controller;
 }
+
+
+
+
 getEntities(coins) {
   var players = Object.values(PlayerList.players).filter(p=>p && p.id !== this.id && Date.now() - p.joinTime > 5000);
   var entities = players.concat(coins);
   return (this.coins < 5000 && Date.now() - this.joinTime < 5000 ? coins : (this.coins < 5000 ? entities : players));
   //return players
 }
+
+
+
+
 getTpos() {
   try {
   return (this.target.type == "player" ? PlayerList.getPlayer(this.target.id).getSendObj().pos : this.target.pos);
@@ -337,7 +348,7 @@ var move = true;
 
 
 
-
+//collectCoins(coins, io, levels) {
   collectCoins(coins, io, levels) {
     
            var touching = coins.filter((coin) => coin.touchingPlayer(this));
@@ -345,9 +356,14 @@ var move = true;
         touching.forEach((coin) => {
           //this.coins += (this.ai?coin.value:140);
           this.coins+= coin.value;
+
+
+/*
+
           if(this.level <= levels.length && this.coins >= levels[this.level-1].coins) {
             //lvl up!
   
+
             var oldLevel = this.level;
           var levelsPassed = [];
                 
@@ -356,6 +372,10 @@ var move = true;
               
                 if(levelsPassed.length > 0) this.checkSubEvolutions();
           }
+          
+
+
+          */
 
 
           var index = coins.findIndex((e) => e.id == coin.id);
@@ -368,6 +388,9 @@ var move = true;
 
       return coins;
   }
+
+
+  /*
   checkSubEvolutions() {
     if(
       evolutions[this.evolution] 
@@ -376,8 +399,12 @@ var move = true;
       && evolutions[this.evolution].subEvolutions[0] <= this.coins 
       && this.evolutionQueue.findIndex((q) => q[0] == evolutions[this.evolution].subEvolutions[1] && q[1] == evolutions[this.evolution].subEvolutions[2]) == -1
       ) this.evolutionQueue.push(evolutions[this.evolution].subEvolutions.slice(1).map((e)=>e.name));
-
   }
+
+*/
+
+
+
   //daño a jugadores (golpear al jugador):
   hittingPlayer(player) {
 
@@ -408,6 +435,9 @@ var move = true;
   }
 return false;
   }
+
+
+
   touchingPlayer(player) {
         return intersects.circleCircle(this.pos.x, this.pos.y, (this.radius*this.scale)*0.8, player.pos.x, player.pos.y, (player.radius*player.scale)*0.9);
   }

@@ -49,8 +49,12 @@ if(!this.target || !this.entityExists(this.target,this.getEntities(coins))) this
     //  var controller = this.getController();
     //  this.move(controller);
     this.move();
-     coins = this.collectCoins(coins, io, levels);
+
+
+     //coins = this.collectCoins(coins, io, levels);   ------>   PARA RECOGER MONEDAS(descomentar=recoger)
       }
+
+
       return [coins,chests];
     }
     getController() {

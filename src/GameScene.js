@@ -755,7 +755,7 @@ llocations.forEach((l,i) => {
 						lastTick: Date.now(),
 						sword: this.add.image(player.pos.x, player.pos.y, "playerSword").setScale(0.25).setDepth(49),
 						player: this.add.image(player.pos.x, player.pos.y, "playerPlayer").setScale(0.25).setDepth(49),
-						bar: new HealthBar(this, player.pos.x, player.pos.y + 55),
+						bar: new HealthBar(this, player.pos.x, player.pos.y + 55), //55 pixeles arriba del player
 
 						nameTag: this.add.rexBBCodeText(player.pos.x, player.pos.y - 90, `${player.name}`, {
 							fontFamily: "serif",
