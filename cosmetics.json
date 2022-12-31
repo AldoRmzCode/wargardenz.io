@@ -19,7 +19,7 @@
             "displayName": "Sponge",
             "url": "/assets/images/spongePlayer.png",
             "price": 1000,
-            "description": "._."
+            "description": "era la skin default"
         },
         {
             "name": "vortex",
@@ -89,7 +89,7 @@
             "displayName": "clown",
             "url": "/assets/images/clownPlayer.png",
             "price": 40000,
-            "description": "*honk honk*"
+            "description": "*honk*"
         },
         {
             "name": "pixel",
@@ -179,8 +179,15 @@
             "name": "curiosito",
             "displayName": "Curiosito",
             "url": "/assets/images/curiositoPlayer.png",
-            "price": 10000,
-            "description": "...¿que estas mirando?"
+            "price": 100000,
+            "description": "?"
+        },
+        {
+            "name": "florencio",
+            "displayName": "Florencio",
+            "url": "/assets/images/florencioPlayer.png",
+            "price": 125000,
+            "description": "q guapo es florencio"
         },
         {
             "name": "seta",
@@ -194,14 +201,14 @@
             "displayName": "Sad Seta",
             "url": "/assets/images/sadPlayer.png",
             "price": 200000,
-            "description": "llora esporas"
+            "description": "llora sus esporas"
         },
         {
             "name": "cucarachuel",
             "displayName": "Cucarachuel",
             "url": "/assets/images/cucarachuelPlayer.png",
             "price": 250000,
-            "description": "ama la pizza"
+            "description": "xd"
         },
         {
             "name": "weirdcore",
@@ -271,7 +278,7 @@
             "displayName": "Luciernaga",
             "url": "/assets/images/luciernagaPlayer.png",
             "price": 1600000,
-            "description": "tan brillate"
+            "description": "muy brillate"
         },
         {
             "name": "virus",
@@ -279,13 +286,6 @@
             "url": "/assets/images/virusPlayer.png",
             "price": 18000000,
             "description": "01010111 01000111"
-        },
-        {
-            "name": "florencio",
-            "displayName": "Florencio",
-            "url": "/assets/images/florencioPlayer.png",
-            "price": 18000000,
-            "description": "si"
         },
         {
             "name": "omega",
@@ -306,7 +306,7 @@
             "displayName": "amigable",
             "url": "/assets/images/amigablePlayer.png",
             "price": 25000000,
-            "description": "es importante serlo"
+            "description": "es importante serlo."
         },
         {
             "name": "prehistorico",
@@ -341,14 +341,14 @@
             "displayName": "Ultra Stone",
             "url": "/assets/images/ultrastonePlayer.png",
             "price": 40000000,
-            "description": "tanto poder..."
+            "description": "tanto poder"
         },
         {
             "name": "savage",
             "displayName": "Savage",
             "url": "/assets/images/savagePlayer.png",
             "price": 60000000,
-            "description": "corran!"
+            "description": "ardiente."
         },
         {
             "name": "hormigatribu",
@@ -362,22 +362,25 @@
             "displayName": "caja de regalo",
             "url": "/assets/images/cajaregaloPlayer.png",
             "price": 0,
-            "description": "Por parte mia, para ustedes"
+            "description": "De parte mia / From me",
+            "especiall": "Skin REGALO/GIFT"
         },
         {
             "name": "duende",
             "displayName": "mestreensinador",
             "url": "/assets/images/duendePlayer.png",
             "price": 100,
-            "description": "Tu de niño, (TIEMPO LIMITADO)",
-            "especiall": "edicion TIK TOK virales"
+            "description": "Tu de niño",
+            "especiall": "(TIEMPO LIMITADO)"
         },
+
+        
         {
             "name": "urigod",
             "displayName": "El Uriel",
             "url": "/assets/images/ElurielPlayer.png",
             "price": 1000000,
-            "description": "rata piedra preciosa",
+            "description": "-",
             "especiall": "edicion one coin"
         },
         {
@@ -385,7 +388,7 @@
             "displayName": "Puvlo",
             "url": "/assets/images/puvloPlayer.png",
             "price": 1000000,
-            "description": "hola mauu",
+            "description": "-",
             "especiall": "edicion one coin"
         },
         {
@@ -393,7 +396,7 @@
             "displayName": "Late",
             "url": "/assets/images/latePlayer.png",
             "price": 1000000,
-            "description": "parad, no soy yo",
+            "description": "-",
             "especiall": "edicion one coin"
         },
         {
@@ -401,7 +404,7 @@
             "displayName": "Mauu",
             "url": "/assets/images/mauuPlayer.png",
             "price": 1000000,
-            "description": "XD",
+            "description": "-",
             "especiall": "edicion one coin"
         }
     ]
