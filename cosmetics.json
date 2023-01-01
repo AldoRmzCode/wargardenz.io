@@ -78,10 +78,17 @@
             "description": "guerrero"
         },
         {
+            "name": "cochinilla",
+            "displayName": "Cochinilla",
+            "url": "/assets/images/cochinillaPlayer.png",
+            "price": 35000,
+            "description": "."
+        },
+        {
             "name": "uwu",
             "displayName": "UwU",
             "url": "/assets/images/uwuPlayer.png",
-            "price": 35000,
+            "price": 40000,
             "description": "UwU"
         },
         {

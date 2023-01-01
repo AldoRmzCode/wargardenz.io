@@ -814,9 +814,9 @@ var maxAiPlayers = 20;
 var maxPlayers = 100;
 
 var maxGolems = 0;
-var maxAiGolems = 2;
+var maxAiGolems = 0;
 
-var maxDionaeas = 4;
+var maxDionaeas = 0;
 
 
 

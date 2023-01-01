@@ -1904,10 +1904,25 @@ try {
 		else var mousePos = this.gamePoint;
 
 		
-
+//angulo de espada(IMPORTANTE)
 		this.meSword.angle = Math.atan2(mousePos.y - ( this.canvas.height / 2), mousePos.x - (this.canvas.width / 2)) * 180 / Math.PI + 45;
-		this.mePlayer.angle = this.meSword.angle + 45 +180;
+//angulo de Player(IMPORTANTE)
+		this.mePlayer.angle = this.meSword.angle + 45 +180; 
 
+
+
+//ESPADA JUSTO EN FRENTE DE JUGADOR Y BIEN SINCRONIZADO
+
+/*
+		this.meSword.angle = Math.atan2(mousePos.y - ( this.canvas.height / 2), mousePos.x - (this.canvas.width / 2)) * 180 / Math.PI + 0;
+		this.mePlayer.angle = this.meSword.angle + 90 +180; //angulo de espada
+*/
+
+
+
+
+
+//---------------------------------------------------------------------------------------
 
 		//sword animation (animacion de espada)
 		/*
