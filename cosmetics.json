@@ -155,6 +155,20 @@
             "description": "*pop*"
         },
         {
+            "name": "tomas",
+            "displayName": "Tomas",
+            "url": "/assets/images/TomasPlayer.png",
+            "price": 85000,
+            "description": "sonrojado"
+        },
+        {
+            "name": "waffle",
+            "displayName": "Waffle",
+            "url": "/assets/images/wafflePlayer.png",
+            "price": 85000,
+            "description": "Wefere"
+        },
+        {
             "name": "flamino",
             "displayName": "Flamino",
             "url": "/assets/images/flaminoPlayer.png",

@@ -1503,9 +1503,9 @@ async function cleanExit() {
       if (socket) {
         socket.send(
           "ban",
-          "<h1>Server is shutting down, we'll be right back!<br>Sorry for the inconvenience.<br><br>" +
+          "<h1>El servidor se está apagando, ¡volveremos enseguida! <br>Disculpe las molestias. <br><br>" +
             (player.verified
-              ? " Your Progress has been saved in your account"
+              ? "Tu progreso ha sido guardado en tu cuenta / Your Progress has been saved in your account/"
               : "") +
             "</h1><hr>"
         );

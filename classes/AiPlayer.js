@@ -1,17 +1,25 @@
+var fs = require("fs");
 const Player = require("./Player");
 const PlayerList = require("./PlayerList");
 function getRandomInt(min, max) {
   return min + Math.floor(Math.random() * (max - min + 1));
 }
-const { faker } = require("@faker-js/faker");
+//const { faker } = require("@faker-js/faker");
 const lerp = (x, y, a) => x * (1 - a) + y * a;
 class AiPlayer extends Player {
     constructor(id) {
-      var aiName = faker.name.findName().split(" ");
-      // this is because some names have Mr. or Ms. in them
-      if (aiName.length > 2) aiName = aiName[1];
-      else aiName = aiName[0];
-       
+      //var aiName = faker.name.findName().split(" ");
+      //this is because some names have Mr. or Ms. in them
+      //if (aiName.length > 2) aiName = aiName[1];
+      //else aiName = aiName[0];
+      
+      
+     if (fs.existsSync("./botnames.txt")) var aiName = fs.readFileSync("./botnames.txt", "utf8").split(/[\r\n]+/).filter(x => x !== "");
+      if (aiName.length > 0) aiName = aiName[(aiName.length * Math.random()) >>> 0];
+      else aiName = aiName;
+
+
+
         super(id,  aiName);
         this.ai = true;
         this.target = undefined;
