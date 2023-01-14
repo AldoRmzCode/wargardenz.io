@@ -131,28 +131,28 @@ if (production) {
 
 var oldlevels = [
 	{coins: 5, scale: 0.28},
-	{coins: 15, scale: 0.32},
-	{coins: 25, scale: 0.35},
-	{coins: 35, scale: 0.4},
-	{coins: 50, scale: 0.45},
-	{coins: 75, scale: 0.47},
-	{coins: 100, scale: 0.5},
-	{coins: 200, scale: 0.6},
-	{coins: 350, scale: 0.7},
-	{coins: 500, scale: 0.8},
-	{coins: 600, scale: 0.85},
-	{coins: 750, scale: 0.89},
-	{coins: 900, scale: 0.9},
-	{coins: 1000, scale: 0.95},
-	{coins: 1100, scale: 0.97},
-	{coins: 1250, scale: 0.99},
-	{coins: 1500, scale: 1},
-	{coins: 2000, scale: 1.04},
-	{coins: 2250, scale: 1.06},
-	{coins: 2500, scale: 1.07},
-	{coins: 2750, scale: 1.1},
-	{coins: 3000, scale: 1.15},
-  {coins: 4000, scale: 1.17},
+	{coins: 15, scale: 0.30},
+	{coins: 25, scale: 0.32},
+	{coins: 35, scale: 0.34},
+	{coins: 50, scale: 0.36},
+	{coins: 75, scale: 0.38},
+	{coins: 100, scale: 0.40},
+	{coins: 200, scale: 0.42},
+	{coins: 350, scale: 0.44},
+	{coins: 500, scale: 0.46},
+	{coins: 600, scale: 0.48},
+	{coins: 750, scale: 0.50},
+	{coins: 900, scale: 0.52},
+	{coins: 1000, scale: 0.54},
+	{coins: 1100, scale: 0.56},
+	{coins: 1250, scale: 0.58},
+	{coins: 1500, scale: 0.60},
+	{coins: 2000, scale: 0.62},
+	{coins: 2250, scale: 0.64},
+	{coins: 2500, scale: 0.66},
+	{coins: 2750, scale: 0.68},
+	{coins: 3000, scale: 0.70},
+  {coins: 4000, scale: 0.72},
 	{coins: 5000, scale: 1.25, evolutions: [evolutions.abeja, evolutions.spider]},
 	{coins: 7500, scale: 1.35},
 	{coins: 9000, scale: 1.45},
@@ -166,6 +166,7 @@ var oldlevels = [
   {coins: 60000, scale: 1.63},
   {coins: 100000, scale: 1.7},
   {coins: 200000, scale: 1.85},
+  {coins: 250000, scale: 1.86},
 ];
 app.set("trust proxy", true);
 /*
@@ -801,7 +802,7 @@ var coins = [];
 var chests = [];
 var flyingSwords = [];
 
-var maxCoins = 1850;
+var maxCoins = 1600;
 
 var maxChests = 30;
 var maxUncommonChests = 15;
@@ -1223,7 +1224,7 @@ setInterval(async () => {
         }
       }
     });
-    if (Date.now() - sword.time > 1000) {
+    if (Date.now() - sword.time > 1000) { // tiempo que tarda espada en reapareer en la mano despues de lanzarla.(RELOAD)
       flyingSwords.splice(i, 1);
       var player = PlayerList.getPlayer(sword.id);
       if(player) {

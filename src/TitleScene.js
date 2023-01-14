@@ -774,14 +774,14 @@ this.shopLoading = false;
       onComplete: () => {
         this.footerdone = true;
       },
-      duration: 1000,
+      duration: 1000, //duracion
       ease: "Power2"
     });
 
     this.tweens.add({
       targets: this.text,
       y: this.canvas.height / 4,
-      duration: 1000,
+      duration: 1000, //duracion
       ease: "Power2"
     });
 

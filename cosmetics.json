@@ -57,6 +57,13 @@
             "description": "Ummm... emm... disculpa..."
         },
         {
+            "name": "timido",
+            "displayName": "Timido",
+            "url": "/assets/images/timidoPlayer.png",
+            "price": 15000,
+            "description": "..."
+        },
+        {
             "name": "glich",
             "displayName": "glich",
             "url": "/assets/images/glichPlayer.png",

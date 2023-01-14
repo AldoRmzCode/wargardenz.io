@@ -27,7 +27,7 @@ class AiPlayer extends Player {
         this.mousePos.viewport.width = 1000;
         this.mousePos.viewport.height = 1000;
         this.chaseTime = 0;
-        var msgs = ["neon", "sponge","vortex","Default","bubble","amarillo","hormiga"];
+        var msgs = ["neon", "sponge","vortex","Default","bubble","amarillo","hormiga", "timido"];
         var msg = msgs[Math.floor(Math.random() * msgs.length)];
         this.skin = msg;
 
@@ -45,7 +45,7 @@ if(!this.target || !this.entityExists(this.target,this.getEntities(coins))) this
         if(this.target.type == "player") this.chaseTime += 1;
         if(this.target.type==="player" && Date.now() - this.lastHit > getRandomInt(300, 700)) {
           
-          if(this.chaseTime > 20) {
+          if(this.chaseTime > 20) { //chase = persecucion
             this.target = this.getClosestEntity(coins);
             this.chaseTime = 0;
           }

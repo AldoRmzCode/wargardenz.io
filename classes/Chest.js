@@ -15,7 +15,7 @@ function getRandomInt(min, max) {
       this.raritys = {
         normal: {
           scale: 0.5,
-          drop: [50,100],
+          drop: [50,60],
           health: 1
         },
         uncommon: {

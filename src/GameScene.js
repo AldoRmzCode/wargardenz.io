@@ -180,7 +180,10 @@ this.killCount.setScrollFactor(0);
 				this.miniMap.scaleFactor = convert(1189, 96, this.canvas.width);
 				this.miniGraphics.x = this.canvas.width - ((this.miniMap.scaleFactor * 2) + padding);
 				this.miniGraphics.y = this.canvas.height - ((this.miniMap.scaleFactor * 2) + padding);
-				this.miniGraphics.lineStyle(5, 0x120007, 1); //color de borde de mapa/ minimapa
+				this.miniGraphics.lineStyle(5, 0x120007, 1);
+//------------------------------------grosor, color de borde de mapa/ minimapa, 1
+
+
 				this.miniGraphics.strokeRoundedRect(0, 0, this.miniMap.scaleFactor * 2,  this.miniMap.scaleFactor * 2, 0);
 				//habilidad
 				this.abilityButton = this.add.image((this.canvas.width /5), (this.canvas.height /5)*4, "abilityBtn").setDepth(101).setScale(0.9).setVisible(false);
@@ -452,7 +455,8 @@ llocations.forEach((l,i) => {
 						this.miniMap.scaleFactor = convert(1189, 96, this.canvas.width);
 						this.miniGraphics.x = this.canvas.width - ((this.miniMap.scaleFactor * 2) + padding);
 						this.miniGraphics.y = this.canvas.height - ((this.miniMap.scaleFactor * 2) + padding);
-						this.miniGraphics.lineStyle(5, 0x120007, 1); //color de borde de mapa/ minimapa
+						this.miniGraphics.lineStyle(5, 0x120007, 1); 
+		//------------------------------------grosor, color de borde de mapa/ minimapa, 1
 						this.miniGraphics.strokeRoundedRect(0, 0, this.miniMap.scaleFactor * 2,  this.miniMap.scaleFactor * 2, 0);
 
 
@@ -637,11 +641,11 @@ llocations.forEach((l,i) => {
 				//boundary o frontera
 				this.graphics = this.add.graphics().setDepth(4);
 				var thickness = 5000;
-				this.graphics.lineStyle(thickness, 0x1f0014, 1); //color de afuera del borde del mapa
+				this.graphics.lineStyle(thickness, 0x080808, 1); //color de afuera del borde del mapa
 
 				this.graphics.strokeRoundedRect(-(map/2) - (thickness/ 2), -(map/2) - (thickness/ 2), map + thickness, map + thickness, 0 );
 
-				this.graphics.lineStyle(10, 0x120007, 1); //COLOR DEL BORDE DEL MAPA GRANDE (frontera)
+				this.graphics.lineStyle(10, 0x030303, 1); //COLOR DEL BORDE DEL MAPA GRANDE (frontera)
 
 				this.graphics.strokeRoundedRect(-(map/2), -(map/2), map, map, 0);
 
@@ -697,8 +701,10 @@ llocations.forEach((l,i) => {
 												this.UICam.ignore(particles);
 												emitter.setSpeed(200);
 												particles.setDepth(105);
-										
 										}
+
+
+
 									}
 									});
 									this.flyingSwordsData.forEach((sword, id) => {
@@ -777,7 +783,7 @@ llocations.forEach((l,i) => {
 
 //texturas comparadas y texturas normales(playerPlayer)
 					if(!this.textures.exists(player.skin+"Player") ) {
-						if(!this.failedLoads.includes(player.skin)){ 
+						if(!this.failedLoads.includes(player.skin)){ //skins de evoluciones "roolskin", etc.
 						this.load.image(`${player.skin}Player`, `/assets/images/${player.skin}Player.png`);
 						this.load.image(`${player.skin}Sword`, `/assets/images/${player.skin}Sword.png`);
 
@@ -1175,7 +1181,7 @@ if(!this.name = "Dionaea")
 					// if(this.myObj) console.log( this.cameras.main.zoom+" -> "+this.myObj.coins+" -> "+player.scale)
 					
 					var show = 1000;
-					show += (this.mePlayer.width*this.mePlayer.scale)*5;
+					show += (this.mePlayer.width*this.mePlayer.scale)*10; //VERADDERO ZOOM (IMPORTANTE)(cambiado de 5 a 10)
 					//var oldZoom = this.cameras.main.zoom;
 					var newZoom = Math.max(this.scale.width / show, this.scale.height / show);
  					this.cameras.main.setZoom(
@@ -1466,11 +1472,13 @@ if(!this.name = "Dionaea")
 
 				});
 
+
+//----------------------------------------------------------------------------------------------------
+				//particulas al provocar daño
 				this.socket.on("dealHit", ([playerId, pPos]) => {
 					var player = this.enemies.find(enemyPlayer => enemyPlayer.id == playerId);
 					if(player && this.sys.game.loop.actualFps >= 30) {
 						var particles = this.add.particles("hitParticle");
-
 						var emitter = particles.createEmitter({
 							
 							maxParticles: 5,
@@ -1481,16 +1489,15 @@ if(!this.name = "Dionaea")
 						this.UICam.ignore(particles);
 						emitter.setSpeed(200);
 						particles.setDepth(105);
-						emitter.setBlendMode(Phaser.BlendModes.ADD);
+						emitter.setBlendMode(Phaser.BlendModes.ADD); //BORROSO
 					}
 					this.hit.play();
 				});
-				//particulas:
+				//particulas al recibir daño
 				this.socket.on("takeHit", ([playerId, pPos]) => {
 					if(this.sys.game.loop.actualFps < 30) return;
 					this.damage.play();
 					var particles = this.add.particles("hitParticle");
-
 					var emitter = particles.createEmitter({
 						
 						maxParticles: 5,
@@ -1503,9 +1510,12 @@ if(!this.name = "Dionaea")
 					particles.setDepth(105);
 					//emitter.setBlendMode(Phaser.BlendModes.ADD);
 				});
+//----------------------------------------------------------------------------------------------------
+
+
+
 
 				//coins
-
 				const addCoin = (coin,start) => {
 					if(this.dead) return;
 					var anim = true;

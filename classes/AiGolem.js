@@ -30,7 +30,7 @@ if(!this.target || !this.entityExists(this.target,this.getEntities(coins))) this
         if(this.target.type == "player") this.chaseTime += 1;
         if(this.target.type==="player" && Date.now() - this.lastHit > getRandomInt(300, 700)) {
           
-          if(this.chaseTime > 20) {
+          if(this.chaseTime > 20) { //chase = persecucion
             this.target = this.getClosestEntity(coins);
             this.chaseTime = 0;
           }
