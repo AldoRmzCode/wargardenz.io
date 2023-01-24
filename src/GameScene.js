@@ -100,8 +100,8 @@ class GameScene extends Phaser.Scene {
 				this.background = this.add.tileSprite(0, 0, this.canvas.width, this.canvas.height, "background").setOrigin(0).setDepth(2);
 				this.background.fixedToCamera = true;
 
-				//player 
-        
+				//player (IMPORTANTE)
+        //--------------------------------------------------------------------profundidad
 				this.meSword = this.add.image(400, 100, "sword").setScale(0.25).setDepth(50).setAlpha(0.5);
 				this.mePlayer = this.add.image(400, 100, "player").setScale(0.25).setDepth(51).setAlpha(0.5);
 				this.meChat = this.add.text(0,0,"", {
@@ -611,7 +611,7 @@ llocations.forEach((l,i) => {
 					}, this);
 				this.input.on("pointerdown", function (pointer) {   //CLIC DERECHO (IMPORTANTE)
 					if(pointer.rightButtonDown() && this.meSword.visible) this.socket.send("throw", []);
-					else mouseDown(pointer);
+					else mouseDown(pointer);//------------------------------------throw abilitado(lanzar)
 					
 				}, this);
 				this.input.on("pointerup", function (pointer) {
@@ -754,11 +754,14 @@ llocations.forEach((l,i) => {
 					if (this.enemies.filter(e => e.id === player.id).length > 0) return;
 					/* vendors contains the element we're looking for */
 
-					var enemy = { //enemigo caracteristicas
+					
+//-----------------------------------------enemigo caracteristicas-----------------------
+					var enemy = { 
 						id: player.id,
 						down: false,
 						playerObj: undefined,
 						lastTick: Date.now(),
+	//VISUALES DE ESPADA posocion, tamaño, etc (IMPORTANTE)
 						sword: this.add.image(player.pos.x, player.pos.y, "playerSword").setScale(0.25).setDepth(49),
 						player: this.add.image(player.pos.x, player.pos.y, "playerPlayer").setScale(0.25).setDepth(49),
 						bar: new HealthBar(this, player.pos.x, player.pos.y + 55), //55 pixeles arriba del player
@@ -776,7 +779,7 @@ llocations.forEach((l,i) => {
 						chatTween: undefined,
 					};
 
-//enemigo caracteristicas terminan
+//------------------------------------enemigo caracteristicas terminan--------------------
 
 
 
@@ -846,7 +849,7 @@ llocations.forEach((l,i) => {
 							alpha: 1,
 							duration: 100,
 							ease: "Linear",
-							repeat: 0,
+							repeat: 0, //veces que se repite la animacion de reaparecer en el mapa
 							yoyo: false
 						});
 					}, 5000 - (Date.now() - player.joinTime));
@@ -1189,7 +1192,7 @@ if(!this.name = "Dionaea")
 					); 
 			
 	
-					this.meSword.setScale(player.scale);
+					this.meSword.setScale(player.scale); //TAMAÑO DE ESPADA DE PLAYER(MUY IMPORTANTE)
 					  this.background.setTileScale(this.cameras.main.zoom, this.cameras.main.zoom);
 					this.background.displayWidth = this.cameras.main.displayWidth;
 					this.background.displayHeight = this.cameras.main.displayHeight;
@@ -1253,7 +1256,7 @@ if(!this.name = "Dionaea")
 						enemy.toAngle = Math.atan2(mousePos.y - ((mousePos.viewport.height) / 2), mousePos.x - ((mousePos.viewport.width) / 2)) * 180 / Math.PI + 45;
 
 						enemy.player.setScale(player.scale);
-						enemy.sword.setScale(player.scale);
+						enemy.sword.setScale(player.scale);//TAMAÑO DE ESPADA DE ENEMIGO(MUY IMPORTANTE)
 						enemy.down = player.mouseDown;
 
 						if(!player.swordInHand) enemy.sword.setVisible(false);
@@ -1537,7 +1540,7 @@ if(!this.name = "Dionaea")
 								alpha: 1,
 								x: coin.pos.x,
 								y: coin.pos.y,
-								duration: 250,
+								duration: 250, //velocidad con que sueltan monedas los cofres
 								ease: "Sine2"
 							});
 						}
@@ -1586,7 +1589,7 @@ if(!this.name = "Dionaea")
 								alpha: 1,
 								x: chest.pos.x,
 								y: chest.pos.y,
-								duration: 250,
+								duration: 250, //velocidad con que sueltan monedas los cofres
 								ease: "Sine2"
 							});
 						}
@@ -1837,7 +1840,7 @@ if(!this.name = "Dionaea")
 							alpha: 1,
 							duration: 100,
 							ease: "Linear",
-							repeat: 0,
+							repeat: 0, //veces que se repite la animacion de reaparecer en el mapa
 							yoyo: false
 						});
 				},5000);
@@ -1920,6 +1923,12 @@ try {
 		this.mePlayer.angle = this.meSword.angle + 45 +180; 
 
 
+		//this.mePlayer.angle = +0; ---> para que no voltee a ninguna parte el player pero su espada sí
+
+
+
+
+		
 
 //ESPADA JUSTO EN FRENTE DE JUGADOR Y BIEN SINCRONIZADO
 
@@ -2057,7 +2066,7 @@ try {
 			}         enemy.sword.angle = lerpTheta(enemy.sword.angle, enemy.toAngle, 0.5);
 			enemy.player.angle = enemy.sword.angle + 45 + 180;
 
-			
+			//enemy.Player.angle = +0; ---> para que no voltee a ninguna parte el player pero su espada sí
 		
 
 			if (enemy.down) {

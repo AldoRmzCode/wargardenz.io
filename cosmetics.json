@@ -197,6 +197,13 @@
             "description": "sabor ácido"
         },
         {
+            "name": "rudo",
+            "displayName": "Rudo",
+            "url": "/assets/images/rudoPlayer.png",
+            "price": 95000,
+            "description": "y enojado con todo"
+        },
+        {
             "name": "aldormzcode",
             "displayName": "AldoRmzCode",
             "url": "/assets/images/aldormzcodePlayer.png",

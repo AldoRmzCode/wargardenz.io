@@ -157,3 +157,18 @@ DAÑO NORMAL CON ESPADA: = "mouseDown"
 
 
 ________________________________________________________________________
+
+
+OPERADORES:
+==                     ---> ES IGUAL
+===                     ---> IGUALDAD ESTRICTA O FUERTE
+
+!=                     ---> DISTINTO
+<,<=,>,>=              ---> 
+&&                     ---> and (y)
+| |                    ---> or (o)
+!                      ---> not (no)
+
++=                      ---> para sumarle una cantidad al valor de una variable.
+-=                      ---> para restarle una cantidad al valor de una variable.
+

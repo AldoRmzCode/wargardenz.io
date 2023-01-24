@@ -250,7 +250,7 @@ go *= power/100;
         const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
     
     var go = since * this.speed;
-    if(this.movementMode == "keys") {
+    if(this.movementMode == "keys") { //movimiento cin teclas en player (semiimportante)
 
     if(this.pos.x <= -(map/2)) controller.left = false;
     if(this.pos.x >= map/2) controller.right = false;
